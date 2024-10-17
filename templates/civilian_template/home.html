@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
-    <p>Hello</p>
+    <div class="container">
+        <h2>Home</h2>
+        <p>Welcome, {{request.user.username}}!</p>
+        <a href="{% url 'logout' %}" style="text-decoration: none;">Logout</a>
+    </div>
 </body>
 </html>

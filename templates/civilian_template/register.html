@@ -6,7 +6,8 @@
     <title>Civilian Registration</title>
 </head>
 <body>
-    <form action="" method="POST">{% csrf_token %}
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
         {{form.as_p}}
     <button type="submit">Submit</button>
     </form>
