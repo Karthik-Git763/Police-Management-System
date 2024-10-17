@@ -11,8 +11,6 @@ def register_civilian(request):
             user = form.save()
             login(request, user)
             return redirect('home')
-        else:
-            print("noooooooooooooooooooooo")
     else:
         form = RegisterForm()
     return render(request, 'civilian_template/register.html', {'form': form})
