@@ -9,7 +9,7 @@ def add_police(request):# check later if working after admin login
         form=AddPoliceForm(request.POST,request=request)
         if form.is_valid():
             form.save()
-            return redirect("home")#temp change later
+            return redirect("adminHome")#temp change later
     else:
         form=AddPoliceForm(request=request)
     return render(request,"admin_templates/addPolice.html",{"form":form})
@@ -19,7 +19,7 @@ def add_station(request):
         form=AddStationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("home")# temp change later
+            return redirect("adminHome")
     else:
         form=AddStationForm()
     return render(request,"admin_templates/addStation.html",{"form":form})
@@ -30,9 +30,7 @@ def add_police_admin(request):
         form=AddPoliceAdminForm(request.POST)
         if form.is_valid():
             user=form.save()
-            #login(request,user)# remove later
-
-            return redirect("home")#change later
+            return redirect("adminHome")
     else:
         form=AddPoliceAdminForm()
     return render(request,"admin_templates/addPoliceAdmin.html",{"form":form})
@@ -46,7 +44,7 @@ def admin_login(request):
         user=authenticate(request,username=username,password=password)
         if user is not None and user.user_type=="Admin":
             login(request,user)
-            return redirect("home")# admin home later
+            return redirect("adminHome")
         else:
             error_message="Invalid credentials or user not admin"
     return render(request,"admin_templates/adminLogin.html",{"errorMsg":error_message})
@@ -60,4 +58,4 @@ def admin_logout(request):
         return render(request,"admin_templates/adminLogout.html")
     
 def admin_home(request):
-    
+    return render(request,"admin_templates/home.html")

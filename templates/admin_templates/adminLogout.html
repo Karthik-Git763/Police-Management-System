@@ -11,8 +11,8 @@
         <p>Are you sure you want to logout ?</p>
         <form method="POST" action="{% url 'adminLogout' %}">
             {% csrf_token %}
-            <button type="submit">Logout</button>
-            <a href="{% url 'home' %}" style="text-decoration: none;">Cancel</a><!--adminHome later for href link--> 
+            <button type="submit">Logout</button><br>
+            <a href="{% url 'adminHome' %}" style="text-decoration: none;">Cancel</a>
         </form>
     </div>
 </body>

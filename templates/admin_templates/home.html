@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+</head>
+<body>
+    <h2>Admin Home</h2>
+    <p>Welcome, {{request.user.username}}!</p>
+    <a href="{% url 'addPolice' %}" style="text-decoration: none;">Add Police</a>
+    <br>
+    <a href="{% url 'addStation' %}" style="text-decoration: none;">add Station</a>
+    <br>
+    <a href="{% url 'addPoliceAdmin' %}" style="text-decoration: none;">add Police Admin</a>
+    <br>
+    <a href="{% url 'adminLogout' %}" style="text-decoration: none;">Log out</a>
+</body>
+</html>
