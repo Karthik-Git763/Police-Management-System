@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
-from ..civilian.models import CustomUser
-from ..policeAdmin.models import AdminModel
+from civilian.models import CustomUser,CivilianModel
+from policeAdmin.models import AdminModel
 # Create your models here.
 
 class Station(models.Model):
@@ -14,11 +14,12 @@ class Station(models.Model):
 
 class Crime(models.Model):
     statusChoice=[("Completed","Completed"),("Investigating","Investigating"),("Request Pending","Request Pending")]
-    
+ 
     crime_type=models.CharField(max_length=50)
     description=models.TextField()
     location=models.CharField(max_length=50)
     status=models.CharField( max_length=50,choices=statusChoice)
+    submitted_by=models.ForeignKey(CivilianModel,on_delete=models.CASCADE)
 
 class PoliceModel(models.Model):
     status_choice=[("On Duty","On Duty"),("Free","Free")]
