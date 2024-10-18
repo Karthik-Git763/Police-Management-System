@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
-from ..civilian.models import CustomUser
-from ..policeAdmin.models import AdminModel
+from civilian.models import CustomUser
+from policeAdmin.models import AdminModel
 # Create your models here.
 
 class Station(models.Model):
