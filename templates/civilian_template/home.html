@@ -6,10 +6,10 @@
     <title>Home</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Home</h2>
-        <p>Welcome, {{request.user.username}}!</p>
-        <a href="{% url 'logout' %}" style="text-decoration: none;">Logout</a>
-    </div>
+    <h2>Home</h2>
+    <p>Welcome, {{request.user.username}}!</p>
+
+    <a href="{% url 'addCrime' %}" style="text-decoration: none;">Add Crime</a>
+    <a href="{% url 'logout' %}" style="text-decoration: none;">Logout</a>
 </body>
 </html>

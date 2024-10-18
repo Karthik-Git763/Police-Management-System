@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from .form import RegisterForm
+from .form import RegisterForm, addCrime
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -40,3 +40,19 @@ def logout_civilian(request):
 @login_required(login_url="login")
 def home_civilian(request):
     return render(request, 'civilian_template/home.html')
+
+@login_required
+def add_Crime(request):
+    if request.method == 'POST':
+        form = addCrime(request.POST, request=request)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = addCrime(request=request)
+    
+    return render(request, 'civilian_template/addCrime.html', {'form': form})
+
+@login_required
+def add_Crime_success(request):
+    return render(request, 'civilian_template/success.html')

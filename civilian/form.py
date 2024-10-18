@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser, CivilianModel
+from police.models import Crime
 
 class RegisterForm(UserCreationForm):
     name = forms.CharField(max_length=50, required=True)
@@ -22,3 +23,29 @@ class RegisterForm(UserCreationForm):
             civilian_model.save()
 
         return user
+    
+class addCrime(forms.ModelForm):
+    class Meta:
+        model = Crime
+        fields = ['crime_type', 'description', 'location', 'station']
+        widgets = {
+            'description': forms.Textarea(attrs={'rows':2.5, 'cols':35}),
+        }
+        labels = {
+            'crime_type': 'Type of Crime',
+            'description': 'Crime Description',
+            'location': 'Location',
+        }
+
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        crime_report = super().save(commit=False)
+        crime_report.submitted_by = CivilianModel.objects.get(user=self.request.user)
+
+        if commit:
+            crime_report.save()
+        
+        return crime_report

@@ -18,6 +18,7 @@ class Crime(models.Model):
     crime_type=models.CharField(max_length=50)
     description=models.TextField()
     location=models.CharField(max_length=50)
+    station = models.ForeignKey(Station, on_delete=models.CASCADE)
     status=models.CharField( max_length=50,choices=statusChoice)
     submitted_by=models.ForeignKey(CivilianModel,on_delete=models.CASCADE)
 
