@@ -20,6 +20,11 @@ class AddPoliceForm(UserCreationForm):# check later if working after admin login
     class Meta:
         model=CustomUser
         fields=['username', 'email', 'password1', 'password2',"first_name","last_name","rank","department","phone_number","status","station"]
+        labels={
+            'first_name':'First Name',
+            'last_name':"Last Name",
+            'phone_number':"Phone Number"
+        }
     
     def save(self,commit=True):
         user=super().save(commit=False)
@@ -40,6 +45,10 @@ class AddStationForm(forms.ModelForm):
     class Meta:
         model=Station
         fields=["location","phone_number"]
+        labels={
+            "location":"Location",
+            "phone_number":"Phone Number"
+        }
 
 
 class AddPoliceAdminForm(UserCreationForm):# check later if working after admin login
@@ -50,6 +59,11 @@ class AddPoliceAdminForm(UserCreationForm):# check later if working after admin 
     class Meta:
         model=CustomUser
         fields=['username', 'email', 'password1', 'password2',"first_name","last_name","phone_number"]
+        labels={
+            'first_name':"First Name",
+            'last_name':"Last Name",
+            'phone_number':"Phone Number"
+        }
     
     def save(self,commit=True):
         user=super().save(commit=False)
