@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from civilian.models import CustomUser
+from civilian.models import CustomUser,CivilianModel
 from policeAdmin.models import AdminModel
 # Create your models here.
 
@@ -14,14 +14,15 @@ class Station(models.Model):
 
 class Crime(models.Model):
     statusChoice=[("Completed","Completed"),("Investigating","Investigating"),("Request Pending","Request Pending")]
-    
+ 
     crime_type=models.CharField(max_length=50)
     description=models.TextField()
     location=models.CharField(max_length=50)
     status=models.CharField( max_length=50,choices=statusChoice)
+    submitted_by=models.ForeignKey(CivilianModel,on_delete=models.CASCADE)
 
 class PoliceModel(models.Model):
-    status_choice=[("On Duty","On Duty"),("Free","Free"),("Not Working","Not Working")]
+    status_choice=[("On Duty","On Duty"),("Free","Free")]
     
     user=models.OneToOneField(CustomUser,on_delete=models.CASCADE)
     rank=models.CharField(max_length=20)
@@ -31,7 +32,7 @@ class PoliceModel(models.Model):
     phone_number=models.CharField(max_length=15)
     status=models.CharField( max_length=50,choices=status_choice)
     station=models.ForeignKey(Station,on_delete=models.CASCADE)
-    current_crime=models.ForeignKey(Crime,on_delete=models.CASCADE)
+    current_crime=models.ForeignKey(Crime,on_delete=models.CASCADE,null=True)
     add_by=models.ForeignKey(AdminModel, on_delete=models.CASCADE)
 
     def __str__(self):
