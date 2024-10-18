@@ -17,7 +17,7 @@ def add_police(request):# check later if working after admin login
         form=AddPoliceForm(request.POST,request=request)
         if form.is_valid():
             form.save()
-            return redirect("admin_home")
+            return redirect("adminHome")
     else:
         form=AddPoliceForm(request=request)
     return render(request,"admin_templates/addPolice.html",{"form":form})
@@ -29,7 +29,7 @@ def add_station(request):
         form=AddStationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("admin_home")
+            return redirect("adminHome")
     else:
         form=AddStationForm()
     return render(request,"admin_templates/addStation.html",{"form":form})
@@ -42,7 +42,7 @@ def add_police_admin(request):
         form=AddPoliceAdminForm(request.POST)
         if form.is_valid():
             user=form.save()
-            return redirect("admin_home")
+            return redirect("adminHome")
     else:
         form=AddPoliceAdminForm()
     return render(request,"admin_templates/addPoliceAdmin.html",{"form":form})

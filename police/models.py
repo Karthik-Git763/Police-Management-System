@@ -21,6 +21,8 @@ class Crime(models.Model):
     station = models.ForeignKey(Station, on_delete=models.CASCADE)
     status=models.CharField( max_length=50,choices=statusChoice)
     submitted_by=models.ForeignKey(CivilianModel,on_delete=models.CASCADE)
+    def __str__(self):
+        return f"{self.crime_type}"
 
 class PoliceModel(models.Model):
     status_choice=[("On Duty","On Duty"),("Free","Free")]
