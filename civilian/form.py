@@ -10,6 +10,8 @@ class RegisterForm(UserCreationForm):
     street = forms.CharField(max_length=50, required=True)
     state = forms.CharField(max_length=50, required=True)
 
+    usable_password = None
+
     class Meta:
         model = CustomUser
         fields = ['username', 'email', 'password1', 'password2', 'name', 'date_of_birth', 'city', 'street', 'state']

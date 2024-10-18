@@ -13,6 +13,9 @@ class AddPoliceForm(UserCreationForm):# check later if working after admin login
     phone_number=forms.CharField(max_length=50,required=True)
     status=forms.CharField(max_length=20,required=True,widget=forms.Select(choices=PoliceModel.status_choice))
     station=forms.ModelChoiceField(queryset=Station.objects.all())
+
+    usable_password = None
+
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
         super().__init__(*args, **kwargs)
@@ -55,6 +58,9 @@ class AddPoliceAdminForm(UserCreationForm):# check later if working after admin 
     first_name=forms.CharField(max_length=50,required=True)
     last_name=forms.CharField(max_length=50,required=True)
     phone_number=forms.CharField(max_length=50,required=True)
+
+
+    usable_password = None    
 
     class Meta:
         model=CustomUser
