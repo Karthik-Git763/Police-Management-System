@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import AddPoliceForm,AddStationForm,AddPoliceAdminForm
-from django.contrib.auth import login, authenticate, logout#temp
+from django.contrib.auth.decorators import login_required 
+from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 
 def add_police(request):# check later if working after admin login
@@ -10,7 +11,7 @@ def add_police(request):# check later if working after admin login
             form.save()
             return redirect("home")#temp change later
     else:
-        form=AddPoliceForm()
+        form=AddPoliceForm(request=request)
     return render(request,"admin_templates/addPolice.html",{"form":form})
 
 def add_station(request):
@@ -25,14 +26,38 @@ def add_station(request):
 
 
 def add_police_admin(request):
-    print("here")
     if request.method=="POST":
         form=AddPoliceAdminForm(request.POST)
         if form.is_valid():
             user=form.save()
-            login(request,user)# remove later
+            #login(request,user)# remove later
 
             return redirect("home")#change later
     else:
         form=AddPoliceAdminForm()
     return render(request,"admin_templates/addPoliceAdmin.html",{"form":form})
+
+
+def admin_login(request):
+    error_message=None
+    if request.method=="POST":
+        username=request.POST.get("username")
+        password=request.POST.get("password")
+        user=authenticate(request,username=username,password=password)
+        if user is not None and user.user_type=="Admin":
+            login(request,user)
+            return redirect("home")# admin home later
+        else:
+            error_message="Invalid credentials or user not admin"
+    return render(request,"admin_templates/adminLogin.html",{"errorMsg":error_message})
+
+#login as sdmin required
+def admin_logout(request):
+    if request.method=="POST":
+        logout(request)
+        return redirect("adminLogin")
+    else:
+        return render(request,"admin_templates/adminLogout.html")
+    
+def admin_home(request):
+    
