@@ -50,7 +50,7 @@ def add_police_admin(request):
 
 def admin_login(request):
     error_message=None
-    next = request.GET.get('next')
+    next = request.GET.get('next',"adminHome")
     if request.method=="POST":
         username=request.POST.get("username")
         password=request.POST.get("password")

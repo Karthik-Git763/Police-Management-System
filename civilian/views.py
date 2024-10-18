@@ -23,7 +23,7 @@ def register_civilian(request):
 
 def login_civilian(request):
     error_message = None
-    next=request.GET.get("next")
+    next=request.GET.get("next","home")
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')

@@ -15,6 +15,12 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ['username', 'email', 'password1', 'password2', 'name', 'date_of_birth', 'city', 'street', 'state']
+        labels={
+            'date_of_birth':"Date of Birth"
+        }
+        help_texts={
+            'date_of_birth':"Enter in format YYYY-MM-DD"
+        }
 
     def save(self, commit=True):
         user = super().save(commit=False)
