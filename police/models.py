@@ -53,6 +53,7 @@ class Witness(models.Model):
     city=models.CharField(max_length=50)
     state=models.CharField(max_length=50)
     crime=models.ForeignKey(Crime,on_delete=models.CASCADE)
+    added_by=models.ForeignKey(PoliceModel,on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -94,6 +95,8 @@ class Evidence(models.Model):
     crime=models.ForeignKey(Crime,on_delete=models.CASCADE)
     date=models.DateField(default=timezone.now)
     description=models.TextField()
+    added_by=models.ForeignKey(PoliceModel,on_delete=models.CASCADE,null=True)
+
 
     def __str__(self):
         return self.name

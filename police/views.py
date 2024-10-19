@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect   #changes in this page after commit
+from django.shortcuts import render, redirect   
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required,user_passes_test
 from .models import Crime,PoliceModel
@@ -76,6 +76,7 @@ def cancel_current_crime(request):
     crime=police.current_crime
     if request.method=="POST":
         police.current_crime=None
+        #to do
         #if no one else is doing that crime change to pending else keep it as investivating 
         crime.status=request.POST.get("status")#add status choice in form
         #check later if needed
