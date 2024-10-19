@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Home</title>
+</head>
+<body>
+    <h1>Details About the Crime</h2>
+    <p>Welcome, {{request.user.username}}!</p>
+    <h2>{{crime.crime_type}}</h2>
+    <h3>About the crime</h3>
+    <p>{{crime.description}}</p>
+    <h3>Location</h3>
+    <p>{{crime.location}}</p>
+    <h3>Nearest Station</h3>
+    <p>{{crime.station}}</p>
+    <h3>Current Status</h3>
+    <p>{{crime.status}}</p>
+    <h3>Submitted By</h3>
+    <p>{{crime.submitted_by}}</p>
+    <form method="Post",action="">{% csrf_token %}
+        <input type="submit" value="Accept This"><!--Change Later-->
+        <a href="{% url 'pendingCrimes' %}">Cancel </a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Crimes</title>
+</head>
+<body>
+    <h2>Pending Crimes</h2>
+    <p>Welcome, {{request.user.username}}!</p>
+    {% for crime in crimes %}
+        <h2><a href="{% url 'crime' crime.id %}">{{crime.crime_type}}</a></h2><!--Check if correct later-->
+        {% if crime.description|length > 50 %}
+            <p>{{ crime.description|slice:":50" }}...</p>
+        {% else %}
+            <p>{{crime.description}}</p>
+        {% endif %}
+
+    {% endfor %}
+</body>
+</html>

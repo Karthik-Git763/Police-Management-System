@@ -55,7 +55,7 @@ class addCrime(forms.ModelForm):
     def save(self, commit=True):
         crime_report = super().save(commit=False)
         crime_report.submitted_by = CivilianModel.objects.get(user=self.request.user)
-
+        crime_report.status="Request Pending"#added extra
         if commit:
             crime_report.save()
         

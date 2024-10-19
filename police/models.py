@@ -13,7 +13,7 @@ class Station(models.Model):
 
 
 class Crime(models.Model):
-    statusChoice=[("Completed","Completed"),("Investigating","Investigating"),("Request Pending","Request Pending")]
+    statusChoice=[("Completed","Completed"),("Investigating","Investigating"),("Request Pending","Request Pending"),("Similiar Repoted","Similar Reported")]
  
     crime_type=models.CharField(max_length=50)
     description=models.TextField()
