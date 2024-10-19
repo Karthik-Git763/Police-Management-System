@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Home</title>
+</head>
+<body>
+    <h2>Police Home</h2>
+    <p>Welcome, {{request.user.username}}!</p>
+    <p>You already have a crime selected. Do you wish to remove that??</p>
+    <a href="{% url 'cancelCrime' %}" style="text-decoration: none;">Yes</a><br>
+    <a href="{% url 'policeHome' %}" style="text-decoration: none;">No</a>
+</body>
+</html>
