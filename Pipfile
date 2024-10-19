@@ -10,3 +10,5 @@ django = "*"
 
 [requires]
 python_version = "3.12.7"
+
+
