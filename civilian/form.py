@@ -5,14 +5,25 @@ from police.models import Crime
 
 class RegisterForm(UserCreationForm):
     name = forms.CharField(max_length=50, required=True)
-    date_of_birth = forms.DateField(required=True)
+    date_of_birth = forms.DateField(required=True,help_text="Enter in format YYYY-MM-DD")
     city = forms.CharField(max_length=50, required=True)
     street = forms.CharField(max_length=50, required=True)
     state = forms.CharField(max_length=50, required=True)
 
+    usable_password = None
+
+
+    # def __init__(self, *args, **kwargs):
+    #         super().__init__(*args, **kwargs)
+    #         self.fields['password1'].help_text = 'give password'
+
+
     class Meta:
         model = CustomUser
         fields = ['username', 'email', 'password1', 'password2', 'name', 'date_of_birth', 'city', 'street', 'state']
+        labels={
+            'date_of_birth':"Date of Birth"
+        }
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -44,7 +55,7 @@ class addCrime(forms.ModelForm):
     def save(self, commit=True):
         crime_report = super().save(commit=False)
         crime_report.submitted_by = CivilianModel.objects.get(user=self.request.user)
-
+        crime_report.status="Request Pending"#added extra
         if commit:
             crime_report.save()
         

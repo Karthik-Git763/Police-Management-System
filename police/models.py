@@ -13,7 +13,7 @@ class Station(models.Model):
 
 
 class Crime(models.Model):
-    statusChoice=[("Completed","Completed"),("Investigating","Investigating"),("Request Pending","Request Pending")]
+    statusChoice=[("Completed","Completed"),("Investigating","Investigating"),("Request Pending","Request Pending"),("Similiar Repoted","Similar Reported")]
  
     crime_type=models.CharField(max_length=50)
     description=models.TextField()
@@ -21,6 +21,8 @@ class Crime(models.Model):
     station = models.ForeignKey(Station, on_delete=models.CASCADE)
     status=models.CharField( max_length=50,choices=statusChoice)
     submitted_by=models.ForeignKey(CivilianModel,on_delete=models.CASCADE)
+    def __str__(self):
+        return f"{self.crime_type}"
 
 class PoliceModel(models.Model):
     status_choice=[("On Duty","On Duty"),("Free","Free")]
@@ -51,6 +53,7 @@ class Witness(models.Model):
     city=models.CharField(max_length=50)
     state=models.CharField(max_length=50)
     crime=models.ForeignKey(Crime,on_delete=models.CASCADE)
+    added_by=models.ForeignKey(PoliceModel,on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -92,6 +95,8 @@ class Evidence(models.Model):
     crime=models.ForeignKey(Crime,on_delete=models.CASCADE)
     date=models.DateField(default=timezone.now)
     description=models.TextField()
+    added_by=models.ForeignKey(PoliceModel,on_delete=models.CASCADE,null=True)
+
 
     def __str__(self):
         return self.name

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Witness</title>
+</head>
+<body>
+    <h1>Add Witness for Crime: {{ crime.crime_type }}</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Witness</button>
+        <a href="{% url 'policeHome' %}" style="text-decoration: none;">Cancel</a><br>
+    </form>
+</body>
+</html>

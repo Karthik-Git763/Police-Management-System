@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Logout</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Current selected Crime is {{crime.crime_type}}</h2>
+        Details
+        <p>{{crime.description}}</p>
+        <p>Change status of current selected crime if needed</p>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="options">Choose an option for status of the crime:{{crime.crime_type}}:</label>
+            <select id="options" name="status">
+                <option value="Request Pending">Deselect this crime</option>
+                {% comment %} <option value="Similiar Repoted">Similar crime already reported</option> {% endcomment %}
+            </select>
+            <button type="submit">Change</button>
+            <a href="{% url 'policeHome' %}" style="text-decoration: none;">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

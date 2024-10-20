@@ -10,6 +10,7 @@ class CustomUser(AbstractUser):
         ]
     user_type=models.CharField(max_length=15,choices=userTypeChoice)
 
+
 class CivilianModel(models.Model):
     name=models.CharField(max_length=50)
     date_of_birth=models.DateField(null=True,blank=True)

@@ -14,7 +14,7 @@
     <h2>Login</h2>
     <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
-        <input type="hidden" name="text" value="{{next}}">
+        <input type="hidden" name="next" value="{{next}}">
         <div class="form-group">
             <label for="username">Username:</label>
             <input type="text" name="username" id="username" required>

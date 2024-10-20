@@ -13,6 +13,9 @@ class AddPoliceForm(UserCreationForm):# check later if working after admin login
     phone_number=forms.CharField(max_length=50,required=True)
     status=forms.CharField(max_length=20,required=True,widget=forms.Select(choices=PoliceModel.status_choice))
     station=forms.ModelChoiceField(queryset=Station.objects.all())
+
+    usable_password = None
+
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
         super().__init__(*args, **kwargs)
@@ -20,6 +23,11 @@ class AddPoliceForm(UserCreationForm):# check later if working after admin login
     class Meta:
         model=CustomUser
         fields=['username', 'email', 'password1', 'password2',"first_name","last_name","rank","department","phone_number","status","station"]
+        labels={
+            'first_name':'First Name',
+            'last_name':"Last Name",
+            'phone_number':"Phone Number"
+        }
     
     def save(self,commit=True):
         user=super().save(commit=False)
@@ -40,6 +48,10 @@ class AddStationForm(forms.ModelForm):
     class Meta:
         model=Station
         fields=["location","phone_number"]
+        labels={
+            "location":"Location",
+            "phone_number":"Phone Number"
+        }
 
 
 class AddPoliceAdminForm(UserCreationForm):# check later if working after admin login
@@ -47,9 +59,17 @@ class AddPoliceAdminForm(UserCreationForm):# check later if working after admin 
     last_name=forms.CharField(max_length=50,required=True)
     phone_number=forms.CharField(max_length=50,required=True)
 
+
+    usable_password = None    
+
     class Meta:
         model=CustomUser
         fields=['username', 'email', 'password1', 'password2',"first_name","last_name","phone_number"]
+        labels={
+            'first_name':"First Name",
+            'last_name':"Last Name",
+            'phone_number':"Phone Number"
+        }
     
     def save(self,commit=True):
         user=super().save(commit=False)
