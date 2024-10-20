@@ -8,6 +8,13 @@
 <body>
     <h2>Pending Crimes</h2>
     <p>Welcome, {{request.user.username}}!</p>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
     {% for crime in crimes %}
         <h2><a href="{% url 'crime' crime.id %}">{{crime.crime_type}}</a></h2><!--Check if correct later-->
         {% if crime.description|length > 50 %}
