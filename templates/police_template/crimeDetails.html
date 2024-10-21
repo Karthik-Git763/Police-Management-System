@@ -20,6 +20,17 @@
     <p>{{crime.status}}</p>
     <h3>Submitted By</h3>
     <p>{{crime.submitted_by}}</p>
+    <h3>Investigating By</h3>
+    <ul>
+        {% if police %}
+            {% for officer in police %}
+                <li>{{officer.first_name}} {{officer.last_name}}</li>
+            {% endfor %}
+        {% else %}
+            <p>No Police Officer assigned to this Crime.</p>
+        {% endif %}
+    </ul>
+
     <form method="Post",action="">{% csrf_token %}
         <input type="submit" value="Accept This"><!--Change Later-->
         <a href="{% url 'pendingCrimes' %}">Cancel </a>
