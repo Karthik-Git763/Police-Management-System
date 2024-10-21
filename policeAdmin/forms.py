@@ -11,7 +11,6 @@ class AddPoliceForm(UserCreationForm):# check later if working after admin login
     rank=forms.CharField(max_length=50,required=True)
     department=forms.CharField(max_length=50,required=True)
     phone_number=forms.CharField(max_length=50,required=True)
-    status=forms.CharField(max_length=20,required=True,widget=forms.Select(choices=PoliceModel.status_choice))
     station=forms.ModelChoiceField(queryset=Station.objects.all())
 
     usable_password = None
@@ -22,7 +21,7 @@ class AddPoliceForm(UserCreationForm):# check later if working after admin login
 
     class Meta:
         model=CustomUser
-        fields=['username', 'email', 'password1', 'password2',"first_name","last_name","rank","department","phone_number","status","station"]
+        fields=['username', 'email', 'password1', 'password2',"first_name","last_name","rank","department","phone_number","station"]
         labels={
             'first_name':'First Name',
             'last_name':"Last Name",

@@ -25,15 +25,12 @@ class Crime(models.Model):
         return f"{self.crime_type}"
 
 class PoliceModel(models.Model):
-    status_choice=[("On Duty","On Duty"),("Free","Free")]
-    
     user=models.OneToOneField(CustomUser,on_delete=models.CASCADE)
     rank=models.CharField(max_length=20)
     department=models.CharField(max_length=50)
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
     phone_number=models.CharField(max_length=15)
-    status=models.CharField( max_length=50,choices=status_choice)
     station=models.ForeignKey(Station,on_delete=models.CASCADE)
     current_crime=models.ForeignKey(Crime,on_delete=models.CASCADE,null=True)
     add_by=models.ForeignKey(AdminModel, on_delete=models.CASCADE)
