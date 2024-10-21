@@ -7,8 +7,6 @@ from django.db.models import Q
 from django.contrib import messages
 # Create your views here.
 
-
-
 def is_police(user):
     return user.user_type=="Police"
 
@@ -50,45 +48,42 @@ def view_pending_crimes(request):
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police,login_url="policeLogin")
 def view_crime_details(request,pk): #later check if the current police has already selected one crime
-    crime=Crime.objects.get(pk=pk)
-    if request.method=="POST":
-        police=PoliceModel.objects.get(user=request.user)
+    crime = Crime.objects.get(pk=pk)
+    if request.method == "POST":
+        police = PoliceModel.objects.get(user = request.user)
         if police.current_crime is not None:
             return render(request,"police_template/confirmCurrentCrimeChange.html",{"crime":crime})
-        police.current_crime=crime
+        police.current_crime = crime
         police.save()
-        crime.status="Investigating"
+        crime.status = "Investigating"
         crime.save()
         messages.success(request, f'The crime {crime} has been selected ')
         return redirect("policeHome")
     else:
-        #user=request.user
-        # police=PoliceModel.objects.get(user=user)
-        # if police.current_crime is not None:
-        #     return render(request,)
-        return render(request,"police_template/crimeDetails.html",{"crime":crime})
+        police = PoliceModel.objects.filter(current_crime = crime)
+        return render(request,"police_template/crimeDetails.html", {"crime":crime, 'police':police})
 
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police,login_url="policeLogin")
 def cancel_current_crime(request):
-    user=request.user
-    police=PoliceModel.objects.get(user=user)
-    crime=police.current_crime
-    if request.method=="POST":
-        police.current_crime=None
-        #to do
-        #if no one else is doing that crime change to pending else keep it as investivating 
-        crime.status=request.POST.get("status")#add status choice in form
-        #check later if needed
-        # if crime.status=="Similiar Repoted"
-        #      change for all who have selected this a crime
+    user = request.user
+    police = PoliceModel.objects.get(user=user)
+    crime = police.current_crime
+    if request.method == "POST":
+        police.current_crime = None
+        other_crimes = PoliceModel.objects.exclude(id = police.id).filter(current_crime = crime).exists() #Check if an officer is working in a crime or not in others perspective also
+        if not other_crimes:
+            crime.status = "Request Pending"
+        else:
+            crime.status = "Investigating"
+
         police.save()
         crime.save()
         messages.success(request, 'Current crime under investigation has been unselected')
         return redirect("policeHome")
     else:
         if police.current_crime is None:
-            messages.error(request ,"Select a crime first ")
+            messages.error(request, "Select a crime first ")
             return redirect("policeHome")
         return render(request,"police_template/cancelCrime.html",{"crime":crime})
 
@@ -96,9 +91,8 @@ def cancel_current_crime(request):
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police,login_url="policeLogin")
 def add_witness(request):
-
-    police=PoliceModel.objects.get(user=request.user)
-    crime=police.current_crime
+    police = PoliceModel.objects.get(user=request.user)
+    crime = police.current_crime
     if crime is None:
         messages.error(request, "No crime selected for investigation. Please select a crime first.")
         return redirect('policeHome')  # Redirect if no crime is selected
@@ -107,7 +101,7 @@ def add_witness(request):
         if form.is_valid():
             witness = form.save(commit=False)
             witness.crime = crime  # Link the witness to the selected crime
-            witness.added_by=police
+            witness.added_by = police
             witness.save()
             messages.success(request, 'Witness added successfully.')
             return redirect('policeHome')  # Redirect to the police home after submission
