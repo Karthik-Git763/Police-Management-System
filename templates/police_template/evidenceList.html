@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidence List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Evidence List</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Crime</th>
+                    <th>Date Added</th>
+                    <th>Description</th>
+                    <th>Added by</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evidence in evidences %}
+                <tr>
+                    <td>{{ evidence.name }}</td>
+                    <td>{{ evidence.crime }}</td>
+                    <td>{{ evidence.date|date:"Y-m-d H:i" }}</td>
+                    <td>{{ evidence.description }}</td>
+                    <td>{{ evidence.added_by.username }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -8,5 +8,7 @@ urlpatterns = [
     path('selectCrime/',views.view_pending_crimes,name="pendingCrimes"),
     path("crimeDetail/<int:pk>",views.view_crime_details,name="crime"),
     path("cancelCrime/",views.cancel_current_crime,name="cancelCrime"),
-    path('add_witness',views.add_witness,name="addWitness")
+    path('add_witness',views.add_witness,name="addWitness"),
+    path('add-evidence/', views.add_evidence, name='addEvidence'),
+    path('evidence-list/', views.evidence_list, name='evidenceList')
 ]
