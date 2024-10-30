@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required,user_passes_test
-from .models import Crime,PoliceModel
-from .form import WitnessForm
+from .models import Crime, PoliceModel, Evidence
+from .form import WitnessForm, EvidenceForm
 from django.db.models import Q
 from django.contrib import messages
 # Create your views here.
@@ -109,3 +109,33 @@ def add_witness(request):
         form = WitnessForm()
 
     return render(request, 'police_template/addWitness.html', {'form': form, 'crime': crime})
+
+@login_required(login_url="policeLogin")
+@user_passes_test(is_police,login_url="policeLogin")
+def add_evidence(request):
+    police = PoliceModel.objects.get(user = request.user)
+    crime = police.current_crime
+    if crime is None:
+        messages.error(request, 'No crime selected for investigation. Please select a crime first.')
+        return redirect('policeHome')  
+    
+    if request.method == 'POST':
+        form = EvidenceForm(request.POST, request.FILES)
+        if form.is_valid():
+            evidence = form.save(commit=False)
+            evidence.added_by = request.user
+            evidence.save()
+            messages.success(request, 'Evidence added successfully!')
+            return redirect('evidence_list')  
+    else:
+        form = EvidenceForm()
+    
+    return render(request, 'police_template/addEvidence.html', {'form': form})
+
+
+
+def evidence_list(request):
+    
+    evidences = Evidence.objects.all()
+    return render(request, 'police_template/evidence_list.html', {'evidences': evidences})
+
