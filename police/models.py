@@ -48,7 +48,7 @@ class PoliceModel(models.Model):
 
 
 class Witness(models.Model):
-    genderChoice=[("M","Male"),("F","Female")]
+    genderChoice = [("M", "Male"), ("F", "Female")]
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -66,37 +66,37 @@ class Witness(models.Model):
 
 
 class Suspect(models.Model):
-    genderChoice=[("M","Male"),("F","Female")]
+    genderChoice = [("M", "Male"), ("F", "Female")]
 
-    first_name=models.CharField(max_length=50)
-    last_name=models.CharField(max_length=50)
-    street=models.CharField(max_length=50)
-    city=models.CharField(max_length=50)
-    state=models.CharField(max_length=50)
-    phone_number=models.CharField(max_length=15)
-    gender=models.CharField(max_length=10,choices=genderChoice)
-    date_of_birth=models.DateField()
-    crime=models.ForeignKey(Crime,on_delete=models.CASCADE)
-    added_by=models.ForeignKey(PoliceModel,on_delete=models.CASCADE,null=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    street = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=15)
+    gender = models.CharField(max_length=10, choices=genderChoice)
+    date_of_birth = models.DateField()
+    crime = models.ForeignKey(Crime, on_delete=models.CASCADE)
+    added_by = models.ForeignKey(PoliceModel, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
 
 class Victim(models.Model):
-    genderChoice=[("M","Male"),("F","Female")]
+    genderChoice = [("M", "Male"), ("F", "Female")]
 
-    first_name=models.CharField(max_length=50)
-    last_name=models.CharField(max_length=50)
-    street=models.CharField(max_length=50)
-    city=models.CharField(max_length=50)
-    state=models.CharField(max_length=50)
-    phone_number=models.CharField(max_length=15)
-    gender=models.CharField(max_length=10,choices=genderChoice)
-    date_of_birth=models.DateField()
-    crime=models.ForeignKey(Crime,on_delete=models.CASCADE)
-    added_by=models.ForeignKey(PoliceModel,on_delete=models.CASCADE,null=True)  
-    
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    street = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=15)
+    gender = models.CharField(max_length=10, choices=genderChoice)
+    date_of_birth = models.DateField()
+    crime = models.ForeignKey(Crime, on_delete=models.CASCADE)
+    added_by = models.ForeignKey(PoliceModel, on_delete=models.CASCADE, null=True)
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 

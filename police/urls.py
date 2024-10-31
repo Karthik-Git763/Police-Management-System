@@ -13,11 +13,12 @@ urlpatterns = [
     path("add_victim/", views.add_victim, name="addVictim"),
     path("add_suspect/", views.add_suspect, name="addSuspect"),
     path("evidence-list/", views.evidence_list, name="evidenceList"),
-    path("addCriminals/", views.add_criminal, name="addCriminal"),
+    path("addCriminal/", views.add_criminal, name="addCriminal"),
     path(
         "addCriminalToCrime",
         views.add_criminal_to_current_crime,
         name="addCriminalToCrime",
     ),
+    path("viewCriminals", views.view_criminals, name="viewCriminals"),
+    path("viewCriminals/<int:id>", views.criminal_details, name="criminalDetails"),
 ]
-

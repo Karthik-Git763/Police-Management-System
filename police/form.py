@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.db.models import fields_all
 from .models import *
 
 
@@ -74,4 +73,6 @@ class CriminalForm(forms.ModelForm):
 
 
 class CriminalToCrimeForm(forms.Form):
-    criminal = forms.ModelChoiceField(queryset=Criminal.objects.all())
+    criminal = forms.ModelChoiceField(
+        queryset=Criminal.objects.all(), widget=forms.Select(attrs={"class": "select2"})
+    )

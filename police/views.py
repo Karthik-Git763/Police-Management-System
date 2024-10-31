@@ -272,4 +272,24 @@ def add_criminal_to_current_crime(request):
         return redirect("policeHome")
     else:
         form = CriminalToCrimeForm()
-    return render(request, "CriminalToCrime.html", {"crime": crime})
+    return render(
+        request, "police_template/criminalToCrime.html", {"crime": crime, "form": form}
+    )
+
+
+@login_required(login_url="policeLogin")
+@user_passes_test(is_police, login_url="policeLogin")
+def view_criminals(request):
+    all_criminals = Criminal.objects.all()
+    return render(
+        request, "police_template/viewCriminals.html", {"criminals": all_criminals}
+    )
+
+
+@login_required(login_url="policeLogin")
+@user_passes_test(is_police, login_url="policeLogin")
+def criminal_details(request, id):
+    criminal = Criminal.objects.get(id=id)
+    return render(
+        request, "police_template/criminalDetails.html", {"criminal": criminal}
+    )
