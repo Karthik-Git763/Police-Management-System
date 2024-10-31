@@ -162,15 +162,16 @@ def add_evidence(request):
             evidence.crime = crime
             evidence.added_by = police
             evidence.save()
-            messages.success(request, 'Evidence added successfully!')
-            return redirect('policeHome')  
+            messages.success(request, "Evidence added successfully!")
+            return redirect("policeHome")
             messages.success(request, "Evidence added successfully!")
             return redirect("evidence_list")
     else:
         form = EvidenceForm()
-    
-    return render(request, 'police_template/addEvidence.html', {'form': form, 'crime':crime})
 
+    return render(
+        request, "police_template/addEvidence.html", {"form": form, "crime": crime}
+    )
 
 
 def evidence_list(request):
@@ -179,51 +180,62 @@ def evidence_list(request):
         request, "police_template/evidence_list.html", {"evidences": evidences}
     )
 
+
 @login_required(login_url="policeLogin")
-@user_passes_test(is_police,login_url="policeLogin")
+@user_passes_test(is_police, login_url="policeLogin")
 def add_suspect(request):
-    police = PoliceModel.objects.get(user = request.user)
+    police = PoliceModel.objects.get(user=request.user)
     crime = police.current_crime
     if crime is None:
-        messages.error(request, 'No crime selected for investigation. Please select a crime first.')
-        return redirect('policeHome')
+        messages.error(
+            request, "No crime selected for investigation. Please select a crime first."
+        )
+        return redirect("policeHome")
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = SuspectForm(request.POST)
         if form.is_valid():
             suspect = form.save(commit=False)
             suspect.crime = crime
             suspect.added_by = police
             suspect.save()
-            messages.success(request, 'Suspect added successfully!')
-            return redirect('policeHome')
+            messages.success(request, "Suspect added successfully!")
+            return redirect("policeHome")
     else:
         form = SuspectForm()
 
-    return render(request, 'police_template/addSuspect.html', {'form': form, 'crime':crime})
+    return render(
+        request, "police_template/addSuspect.html", {"form": form, "crime": crime}
+    )
+
 
 @login_required(login_url="policeLogin")
-@user_passes_test(is_police,login_url="policeLogin")
+@user_passes_test(is_police, login_url="policeLogin")
 def add_victim(request):
-    police = PoliceModel.objects.get(user = request.user)
+    police = PoliceModel.objects.get(user=request.user)
     crime = police.current_crime
     if crime is None:
-        messages.error(request, 'No crime selected for investigation. Please select a crime first.')
-        return redirect('policeHome')
+        messages.error(
+            request, "No crime selected for investigation. Please select a crime first."
+        )
+        return redirect("policeHome")
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = VictimForm(request.POST)
         if form.is_valid():
             victim = form.save(commit=False)
             victim.crime = crime
             victim.added_by = police
             victim.save()
-            messages.success(request, 'Victim added successfully!')
-            return redirect('policeHome')  
+            messages.success(request, "Victim added successfully!")
+            return redirect("policeHome")
     else:
         form = VictimForm()
 
-    return render(request, 'police_template/addVictim.html', {'form': form, 'crime':crime})
+    return render(
+        request, "police_template/addVictim.html", {"form": form, "crime": crime}
+    )
+
 
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police, login_url="policeLogin")
@@ -237,3 +249,27 @@ def add_criminal(request):
     else:
         form = CriminalForm()
     return render(request, "police_template/addCriminal.html", {"form": form})
+
+
+@login_required(login_url="policeLogin")
+@user_passes_test(is_police, login_url="policeLogin")
+def add_criminal_to_current_crime(request):
+    police = PoliceModel.objects.get(user=request.user)
+    crime = police.current_crime
+    if crime is None:
+        messages.error(request, "Select a crime first")
+        redirect("policeHome")
+    if request.method == "POST":
+        form = CriminalToCrimeForm(request.POST)
+        if form.is_valid():
+            criminal = form.cleaned_data["criminal"]
+            crime.criminal_set.add(criminal)
+            messages.success(
+                request, f"Criminal successfully add to crime {str(crime)}"
+            )
+            return redirect("policeHome")
+        messages.error(request, "Form was invalid")
+        return redirect("policeHome")
+    else:
+        form = CriminalToCrimeForm()
+    return render(request, "CriminalToCrime.html", {"crime": crime})

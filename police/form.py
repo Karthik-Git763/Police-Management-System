@@ -1,8 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.db.models import fields_all
 from .models import *
-from django.forms import widgets
-
 
 
 class WitnessForm(forms.ModelForm):
@@ -23,18 +22,37 @@ class WitnessForm(forms.ModelForm):
 class EvidenceForm(forms.ModelForm):
     class Meta:
         model = Evidence
-        fields = ['name', 'date', 'description']
+        fields = ["name", "date", "description"]
+
 
 class SuspectForm(forms.ModelForm):
     class Meta:
         model = Suspect
-        fields = ['first_name', 'last_name', 'phone_number', 'gender', 'date_of_birth', 'street', 'city', 'state']
+        fields = [
+            "first_name",
+            "last_name",
+            "phone_number",
+            "gender",
+            "date_of_birth",
+            "street",
+            "city",
+            "state",
+        ]
+
 
 class VictimForm(forms.ModelForm):
     class Meta:
         model = Victim
-        fields = ['first_name', 'last_name', 'phone_number', 'gender', 'date_of_birth', 'street', 'city', 'state']
-        fields = ["name", "crime", "date", "description", "added_by"]
+        fields = [
+            "first_name",
+            "last_name",
+            "phone_number",
+            "gender",
+            "date_of_birth",
+            "street",
+            "city",
+            "state",
+        ]
 
 
 class CriminalForm(forms.ModelForm):
@@ -53,3 +71,7 @@ class CriminalForm(forms.ModelForm):
         ]
 
         widgets = {"crime": forms.SelectMultiple(attrs={"class": "select2"})}
+
+
+class CriminalToCrimeForm(forms.Form):
+    criminal = forms.ModelChoiceField(queryset=Criminal.objects.all())
