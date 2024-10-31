@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Criminal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+</head>
+<body>
+    <div >
+        <h2>Add Criminal</h2>
+        <p>Welcome, {{request.user.username}}!</p>
+        <form method="Post">{% csrf_token %}
+            {{ form.as_p }}
+            <p><small>( Hold ctrl to select more than one )</small>:</p>
+            <input type="submit" value="Add"><br>
+            <a href="{% url 'policeHome' %}">Cancel</a>
+        </form>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                width: '100%',  <!--Can change later-->
+                placeholder: "Select crimes",  <!--Can change later--> 
+
+            });
+        });
+    </script>
+</body>
+</html>

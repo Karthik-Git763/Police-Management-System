@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+</head>
+<body>
+    <h1>Criminal Details</h1>
+    <p>
+      <ul>
+        <li>First Name :{{criminal.first_name}}</li>
+        <li>Last Name : {{criminal.last_name}}</li>
+        <li>Gender: {{criminal.gender}}</li>
+        <li>Status: {{criminal.status}}</li>
+        <li>Date of Birth :{{criminal.date_of_birth}}</li>
+        <li>Street: {{criminal.street}}</li>
+        <li>City: {{criminal.city}}</li>
+        <li>State: {{criminal.state}}</li>
+        <li><h3>Crimes</h3>
+          <ol>
+            {% for crime in criminal.crime.all %}<!-- .all is automatically intepreted as .all() by django template lang for many to many manager -->
+              <li>{{crime}}</li>
+            {% endfor %}
+          </ol>
+        </li>
+      </ul>
+    </p>
+    <a href="{% url 'policeHome' %}"> Home </a>
+</body>
+</html>
