@@ -39,7 +39,7 @@ class PoliceModel(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 class Witness(models.Model):
-    genderChoice=[("M","Male"),("F","Females")]
+    genderChoice=[("M","Male"),("F","Female")]
 
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
@@ -56,7 +56,7 @@ class Witness(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 class Suspect(models.Model):
-    genderChoice=[("M","Male"),("F","Females")]
+    genderChoice=[("M","Male"),("F","Female")]
 
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
@@ -67,12 +67,13 @@ class Suspect(models.Model):
     gender=models.CharField(max_length=10,choices=genderChoice)
     date_of_birth=models.DateField()
     crime=models.ForeignKey(Crime,on_delete=models.CASCADE)
-    
+    added_by=models.ForeignKey(PoliceModel,on_delete=models.CASCADE,null=True)
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
 class Victim(models.Model):
-    genderChoice=[("M","Male"),("F","Females")]
+    genderChoice=[("M","Male"),("F","Female")]
 
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
@@ -83,6 +84,7 @@ class Victim(models.Model):
     gender=models.CharField(max_length=10,choices=genderChoice)
     date_of_birth=models.DateField()
     crime=models.ForeignKey(Crime,on_delete=models.CASCADE)
+    added_by=models.ForeignKey(PoliceModel,on_delete=models.CASCADE,null=True)  
     
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
