@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Crime Tracking System</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header><h1>Welcome to Police Crime Tracking System</h1></header>
+    <div class="container">
+        <a href="{% url 'civilianLogin' %}" class="box">Civilian</a>
+        <a href="{% url 'policeLogin' %}" class="box">Police</a>
+        <a href="{% url 'adminLogin' %}" class="box">Admin</a>
+    </div>
+</body>
+</html>

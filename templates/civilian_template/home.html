@@ -1,15 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Civilian Home</title>
+    <link rel="stylesheet" href="{% static 'css/civilian/home.css' %}">
 </head>
 <body>
-    <h2>Home</h2>
+    <h2>Civilian Home</h2>
     <p>Welcome, {{request.user.username}}!</p>
 
     <a href="{% url 'addCrime' %}" style="text-decoration: none;">Add Crime</a>
-    <a href="{% url 'logout' %}" style="text-decoration: none;">Logout</a>
+    <a href="{% url 'civilianLogout' %}" style="text-decoration: none;">Logout</a>
 </body>
 </html>

@@ -17,10 +17,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from PoliceManagementSystem.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",include("civilian.urls")),
+    path('', home_view, name='home'),
+    path("civilian/",include("civilian.urls")),
     path("policeAdmin/",include("policeAdmin.urls")),
     path("police/", include('police.urls')),
 ]

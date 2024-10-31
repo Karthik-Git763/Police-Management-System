@@ -1,15 +1,65 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/civilian/register.css' %}">
     <title>Civilian Registration</title>
 </head>
 <body>
-    <form action="{% url 'register' %}" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-    <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <h1>Civilian Registration</h1>
+        <form action="{% url 'civilianRegister' %}" method="POST">
+            {% csrf_token %}
+            
+            <div class="form-row">
+                <label>Username:</label>
+                {{ form.username }}
+            </div>
+            
+            <div class="form-row">
+                <label>Email:</label>
+                {{ form.email }}
+            </div>
+
+            <div class="form-row">
+                <label>Password:</label>
+                {{ form.password1 }}
+            </div>
+
+            <div class="form-row">
+                <label>Confirm Password:</label>
+                {{ form.password2 }}
+            </div>
+            
+            <div class="form-row">
+                <label>Name:</label>
+                {{ form.name }}
+            </div>
+
+            <div class="form-row">
+                <label>Date of Birth:</label>
+                {{ form.date_of_birth }}
+            </div>
+
+            <div class="form-row">
+                <label>City:</label>
+                {{ form.city }}
+            </div>
+
+            <div class="form-row">
+                <label>Street:</label>
+                {{ form.street }}
+            </div>
+
+            <div class="form-row">
+                <label>State:</label>
+                {{ form.state }}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'civilianLogin' %}" style="text-decoration: none; color: blueviolet;">Login Here</a></p>
+    </div>
 </body>
 </html>
