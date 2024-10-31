@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civilian Home</title>
+</head>
+<body>
+    <h1>Submitted crime details</h1>
+    <p>Welcome, {{request.user.username}}!</p>
+    <h2>{{crime.crime_type}}</h2>
+      <p>
+        <ul>
+        <li>Description: {{crime.description}}</li>
+        <li>Status: {{crime.status}}</li>
+        <li>Location: {{crime.location}}</li>
+        <li>Station: {{crime.station}}</li>
+        </ul>
+        <h4>Police Officers investigating</h4>
+        {% if policeOfficers %}
+        <ol>
+          {% for police in policeOfficers %}
+            <li>Name: {{police.first_name}} {{police.last_name}}
+              <br>
+              Phone No: {{police.phone_number}}
+            </li>
+          {% endfor %}
+        </ol>
+        {% else %}
+          No officer currently investigating
+        {% endif %}
+      </p>
+      <a href="{% url 'civilianHome' %}">Home</a>
+</body>
+</html>
