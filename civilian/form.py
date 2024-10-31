@@ -21,9 +21,6 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ['username', 'email', 'password1', 'password2', 'name', 'date_of_birth', 'city', 'street', 'state']
-        labels={
-            'date_of_birth':"Date of Birth"
-        }
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -40,14 +37,9 @@ class addCrime(forms.ModelForm):
         model = Crime
         fields = ['crime_type', 'description', 'location', 'station']
         widgets = {
-            'description': forms.Textarea(attrs={'rows':2.5, 'cols':35}),
+            'description': forms.Textarea(attrs={'rows':6, 'cols':35}),
         }
-        labels = {
-            'crime_type': 'Type of Crime',
-            'description': 'Crime Description',
-            'location': 'Location',
-        }
-
+        
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
         super().__init__(*args, **kwargs)

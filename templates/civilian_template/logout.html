@@ -1,18 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logout</title>
+    <title>Civilian Logout</title>
+    <link rel="stylesheet" href="{% static 'css/civilian/logout.css' %}">
 </head>
 <body>
     <div class="container">
-        <h2>Logout</h2>
+        <h2>Civilian Logout</h2>
         <p>Are you sure you want to logout ?</p>
-        <form method="POST" action="{% url 'logout' %}">
+        <form method="POST" action="{% url 'civilianLogout' %}">
             {% csrf_token %}
             <button type="submit">Logout</button>
-            <a href="{% url 'home' %}" style="text-decoration: none;">Cancel</a>
+            <button><a href="{% url 'civilianHome' %}">Cancel</a></button>
         </form>
     </div>
 </body>

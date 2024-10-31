@@ -1,34 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        .error {
-            color: red;
-        }
-    </style>
+    <title>Civilian Login</title>
+    <link rel="stylesheet" href="{% static 'css/civilian/login.css' %}">
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="POST" action="{% url 'login' %}">
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{next}}">
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="text" name="password" id="password" required>
-        </div>
-        <button type="submit">Login</button>
-    </form>
+    <div class="form-container">
+        <h2>Civilian Login</h2>
+        <form method="POST" action="{% url 'civilianLogin' %}">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{next}}">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
 
-    {% if error %}
-        <p class="error">{{ error }}</p>
-    {% endif %}
-    <p>Don't have an account? <a href="{% url 'register' %}" style="text-decoration: none;">Register Here</a></p>
+        {% if error %}
+            <p class="error" id="error-message">{{ error }}</p>
+        {% endif %}
+        <p>Don't have an account? <a href="{% url 'civilianRegister' %}" style="text-decoration: none; color: blueviolet;">Register Here</a></p>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const errorMessage = document.getElementById('error-message');
+            if (errorMessage) {
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }
+        };
+    </script>
 </body>
 </html>
