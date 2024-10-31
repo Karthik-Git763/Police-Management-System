@@ -164,8 +164,6 @@ def add_evidence(request):
             evidence.save()
             messages.success(request, "Evidence added successfully!")
             return redirect("policeHome")
-            messages.success(request, "Evidence added successfully!")
-            return redirect("evidence_list")
     else:
         form = EvidenceForm()
 
