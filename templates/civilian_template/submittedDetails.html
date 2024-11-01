@@ -38,7 +38,9 @@
         {% else %}
         <p class="no-officers">No officer currently investigating</p>
         {% endif %}
-        <a href="{% url 'crimeUpdate' crime.id %}"><button>Update Crime</button></a>
+        <div class="button1">
+          <button><a href="{% url 'crimeUpdate' crime.id %}">Update Crime</a></button>
+        </div>
       </p>
     </div>
 </body>
