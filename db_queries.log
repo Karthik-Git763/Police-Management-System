@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 [REQUEST PATH]: /
 [TOTAL TIME]: 0.02 seconds
@@ -10746,3 +10747,5 @@
 [REQUEST PATH]: /civilian/login/
 [TOTAL TIME]: 0.00 seconds
 [NUMBER OF QUERIES]: 0
+=======
+>>>>>>> 5f5beca3f0db4311bcb559daa5a4562da3a131e6

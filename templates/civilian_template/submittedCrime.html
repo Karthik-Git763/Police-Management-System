@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civilian Home</title>
+</head>
+<body>
+    <h2>Submitted crime details</h2>
+    <p>Welcome, {{request.user.username}}!</p>
+    {% if crimes %} 
+      {% for crime in crimes %}
+    <h3><a href="{% url 'submittedDetails' crime.id %}">{{crime.crime_type}}</a></h3>
+      <p>{{crime.description}}
+      <br>
+      </p>
+      {% endfor %}
+    {% else %}
+    <h3>No Crimes Submitted Till Now</h3>
+    {% endif %}
+    <a href="{% url 'civilianHome' %}">Home</a>
+</body>
+</html>
