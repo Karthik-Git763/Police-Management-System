@@ -104,7 +104,6 @@ def submitted_crime_details(request, pk):
     civilian = CivilianModel.objects.get(user=user)
     crime = Crime.objects.get(pk=pk)
     police = PoliceModel.objects.filter(current_crime=crime)
-    print(police)
     if crime.submitted_by == civilian:
         return render(
             request,

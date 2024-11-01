@@ -50,7 +50,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "PoliceManagementSystem.middleware.query_logging_middleware.QueryLoggingMiddleware",
+    #"PoliceManagementSystem.middleware.query_logging_middleware.QueryLoggingMiddleware",   enable later
 ]
 
 ROOT_URLCONF = "PoliceManagementSystem.urls"
