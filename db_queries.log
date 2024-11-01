@@ -1,0 +1,405 @@
+
+[REQUEST PATH]: /
+[TOTAL TIME]: 0.02 seconds
+[NUMBER OF QUERIES]: 0
+
+[REQUEST PATH]: /civilian/login/
+[TOTAL TIME]: 0.00 seconds
+[NUMBER OF QUERIES]: 0
+
+[REQUEST PATH]: /civilian/login/
+[TOTAL TIME]: 0.26 seconds
+[NUMBER OF QUERIES]: 1
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."username" = 'testCiv' LIMIT 21
+
+[REQUEST PATH]: /civilian/login/
+[TOTAL TIME]: 0.30 seconds
+[NUMBER OF QUERIES]: 3
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."username" = 'testCiv' LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-10-31 18:35:07.076669' AND "django_session"."session_key" = '0da1d8q1sdaigsnkx1x6gbp5j85najkg') LIMIT 21
+
+[TIME]: 0.047 seconds
+[SQL]: UPDATE "civilian_customuser" SET "last_login" = '2024-10-31 18:35:07.077671' WHERE "civilian_customuser"."id" = 5
+
+[REQUEST PATH]: /civilian/
+[TOTAL TIME]: 0.00 seconds
+[NUMBER OF QUERIES]: 2
+
+[TIME]: 0.015 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-10-31 18:35:07.131951' AND "django_session"."session_key" = '0da1d8q1sdaigsnkx1x6gbp5j85najkg') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 5 LIMIT 21
+
+[REQUEST PATH]: /civilian/submittedCrimes
+[TOTAL TIME]: 0.01 seconds
+[NUMBER OF QUERIES]: 4
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-10-31 18:35:09.600891' AND "django_session"."session_key" = '0da1d8q1sdaigsnkx1x6gbp5j85najkg') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 5 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_civilianmodel"."id", "civilian_civilianmodel"."name", "civilian_civilianmodel"."date_of_birth", "civilian_civilianmodel"."city", "civilian_civilianmodel"."street", "civilian_civilianmodel"."state", "civilian_civilianmodel"."user_id" FROM "civilian_civilianmodel" WHERE "civilian_civilianmodel"."user_id" = 5 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_crime"."id", "police_crime"."crime_type", "police_crime"."description", "police_crime"."location", "police_crime"."station_id", "police_crime"."status", "police_crime"."submitted_by_id" FROM "police_crime" WHERE "police_crime"."submitted_by_id" = 2
+
+[REQUEST PATH]: /civilian/submittedCrimes/4
+[TOTAL TIME]: 0.01 seconds
+[NUMBER OF QUERIES]: 8
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-10-31 18:35:10.953064' AND "django_session"."session_key" = '0da1d8q1sdaigsnkx1x6gbp5j85najkg') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 5 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_civilianmodel"."id", "civilian_civilianmodel"."name", "civilian_civilianmodel"."date_of_birth", "civilian_civilianmodel"."city", "civilian_civilianmodel"."street", "civilian_civilianmodel"."state", "civilian_civilianmodel"."user_id" FROM "civilian_civilianmodel" WHERE "civilian_civilianmodel"."user_id" = 5 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_crime"."id", "police_crime"."crime_type", "police_crime"."description", "police_crime"."location", "police_crime"."station_id", "police_crime"."status", "police_crime"."submitted_by_id" FROM "police_crime" WHERE "police_crime"."id" = 4 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_policemodel"."id", "police_policemodel"."user_id", "police_policemodel"."rank", "police_policemodel"."department", "police_policemodel"."first_name", "police_policemodel"."last_name", "police_policemodel"."phone_number", "police_policemodel"."station_id", "police_policemodel"."current_crime_id", "police_policemodel"."add_by_id" FROM "police_policemodel" WHERE "police_policemodel"."current_crime_id" = 4 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_civilianmodel"."id", "civilian_civilianmodel"."name", "civilian_civilianmodel"."date_of_birth", "civilian_civilianmodel"."city", "civilian_civilianmodel"."street", "civilian_civilianmodel"."state", "civilian_civilianmodel"."user_id" FROM "civilian_civilianmodel" WHERE "civilian_civilianmodel"."id" = 2 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_station"."id", "police_station"."location", "police_station"."number_of_officers", "police_station"."phone_number" FROM "police_station" WHERE "police_station"."id" = 2 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_policemodel"."id", "police_policemodel"."user_id", "police_policemodel"."rank", "police_policemodel"."department", "police_policemodel"."first_name", "police_policemodel"."last_name", "police_policemodel"."phone_number", "police_policemodel"."station_id", "police_policemodel"."current_crime_id", "police_policemodel"."add_by_id" FROM "police_policemodel" WHERE "police_policemodel"."current_crime_id" = 4
+
+[REQUEST PATH]: /civilian/submittedCrimes/2
+[TOTAL TIME]: 0.00 seconds
+[NUMBER OF QUERIES]: 8
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-10-31 18:35:15.316576' AND "django_session"."session_key" = '0da1d8q1sdaigsnkx1x6gbp5j85najkg') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 5 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_civilianmodel"."id", "civilian_civilianmodel"."name", "civilian_civilianmodel"."date_of_birth", "civilian_civilianmodel"."city", "civilian_civilianmodel"."street", "civilian_civilianmodel"."state", "civilian_civilianmodel"."user_id" FROM "civilian_civilianmodel" WHERE "civilian_civilianmodel"."user_id" = 5 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_crime"."id", "police_crime"."crime_type", "police_crime"."description", "police_crime"."location", "police_crime"."station_id", "police_crime"."status", "police_crime"."submitted_by_id" FROM "police_crime" WHERE "police_crime"."id" = 2 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_policemodel"."id", "police_policemodel"."user_id", "police_policemodel"."rank", "police_policemodel"."department", "police_policemodel"."first_name", "police_policemodel"."last_name", "police_policemodel"."phone_number", "police_policemodel"."station_id", "police_policemodel"."current_crime_id", "police_policemodel"."add_by_id" FROM "police_policemodel" WHERE "police_policemodel"."current_crime_id" = 2 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_civilianmodel"."id", "civilian_civilianmodel"."name", "civilian_civilianmodel"."date_of_birth", "civilian_civilianmodel"."city", "civilian_civilianmodel"."street", "civilian_civilianmodel"."state", "civilian_civilianmodel"."user_id" FROM "civilian_civilianmodel" WHERE "civilian_civilianmodel"."id" = 2 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_station"."id", "police_station"."location", "police_station"."number_of_officers", "police_station"."phone_number" FROM "police_station" WHERE "police_station"."id" = 1 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_policemodel"."id", "police_policemodel"."user_id", "police_policemodel"."rank", "police_policemodel"."department", "police_policemodel"."first_name", "police_policemodel"."last_name", "police_policemodel"."phone_number", "police_policemodel"."station_id", "police_policemodel"."current_crime_id", "police_policemodel"."add_by_id" FROM "police_policemodel" WHERE "police_policemodel"."current_crime_id" = 2
+
+[REQUEST PATH]: /civilian/submittedCrimes/1
+[TOTAL TIME]: 0.00 seconds
+[NUMBER OF QUERIES]: 8
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-10-31 18:35:17.567998' AND "django_session"."session_key" = '0da1d8q1sdaigsnkx1x6gbp5j85najkg') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 5 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_civilianmodel"."id", "civilian_civilianmodel"."name", "civilian_civilianmodel"."date_of_birth", "civilian_civilianmodel"."city", "civilian_civilianmodel"."street", "civilian_civilianmodel"."state", "civilian_civilianmodel"."user_id" FROM "civilian_civilianmodel" WHERE "civilian_civilianmodel"."user_id" = 5 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_crime"."id", "police_crime"."crime_type", "police_crime"."description", "police_crime"."location", "police_crime"."station_id", "police_crime"."status", "police_crime"."submitted_by_id" FROM "police_crime" WHERE "police_crime"."id" = 1 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_policemodel"."id", "police_policemodel"."user_id", "police_policemodel"."rank", "police_policemodel"."department", "police_policemodel"."first_name", "police_policemodel"."last_name", "police_policemodel"."phone_number", "police_policemodel"."station_id", "police_policemodel"."current_crime_id", "police_policemodel"."add_by_id" FROM "police_policemodel" WHERE "police_policemodel"."current_crime_id" = 1 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_civilianmodel"."id", "civilian_civilianmodel"."name", "civilian_civilianmodel"."date_of_birth", "civilian_civilianmodel"."city", "civilian_civilianmodel"."street", "civilian_civilianmodel"."state", "civilian_civilianmodel"."user_id" FROM "civilian_civilianmodel" WHERE "civilian_civilianmodel"."id" = 2 LIMIT 21
+
+[TIME]: 0.016 seconds
+[SQL]: SELECT "police_station"."id", "police_station"."location", "police_station"."number_of_officers", "police_station"."phone_number" FROM "police_station" WHERE "police_station"."id" = 2 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_policemodel"."id", "police_policemodel"."user_id", "police_policemodel"."rank", "police_policemodel"."department", "police_policemodel"."first_name", "police_policemodel"."last_name", "police_policemodel"."phone_number", "police_policemodel"."station_id", "police_policemodel"."current_crime_id", "police_policemodel"."add_by_id" FROM "police_policemodel" WHERE "police_policemodel"."current_crime_id" = 1
+
+[REQUEST PATH]: /civilian/
+[TOTAL TIME]: 0.00 seconds
+[NUMBER OF QUERIES]: 2
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-10-31 18:35:22.388183' AND "django_session"."session_key" = '0da1d8q1sdaigsnkx1x6gbp5j85najkg') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 5 LIMIT 21
+
+[REQUEST PATH]: /police/crimeDetail/2
+[TOTAL TIME]: 0.02 seconds
+[NUMBER OF QUERIES]: 2
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:13:12.368747' AND "django_session"."session_key" = '0da1d8q1sdaigsnkx1x6gbp5j85najkg') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 5 LIMIT 21
+
+[REQUEST PATH]: /police/login/
+[TOTAL TIME]: 0.04 seconds
+[NUMBER OF QUERIES]: 0
+
+[REQUEST PATH]: /police/login/
+[TOTAL TIME]: 0.26 seconds
+[NUMBER OF QUERIES]: 5
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."username" = 'testPolice' LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:13:24.752344' AND "django_session"."session_key" = '0da1d8q1sdaigsnkx1x6gbp5j85najkg') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE "django_session"."session_key" = '0da1d8q1sdaigsnkx1x6gbp5j85najkg' LIMIT 21
+
+[TIME]: 0.015 seconds
+[SQL]: DELETE FROM "django_session" WHERE "django_session"."session_key" IN ('0da1d8q1sdaigsnkx1x6gbp5j85najkg')
+
+[TIME]: 0.000 seconds
+[SQL]: UPDATE "civilian_customuser" SET "last_login" = '2024-11-01 12:13:24.760865' WHERE "civilian_customuser"."id" = 3
+
+[REQUEST PATH]: /police/
+[TOTAL TIME]: 0.01 seconds
+[NUMBER OF QUERIES]: 2
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:13:24.776186' AND "django_session"."session_key" = 'c4h15pepnw8yon1fmzm736h6v3npa42c') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 3 LIMIT 21
+
+[REQUEST PATH]: /police/addCriminalToCrime
+[TOTAL TIME]: 0.11 seconds
+[NUMBER OF QUERIES]: 5
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:15:18.598824' AND "django_session"."session_key" = 'c4h15pepnw8yon1fmzm736h6v3npa42c') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 3 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_policemodel"."id", "police_policemodel"."user_id", "police_policemodel"."rank", "police_policemodel"."department", "police_policemodel"."first_name", "police_policemodel"."last_name", "police_policemodel"."phone_number", "police_policemodel"."station_id", "police_policemodel"."current_crime_id", "police_policemodel"."add_by_id" FROM "police_policemodel" WHERE "police_policemodel"."user_id" = 3 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_crime"."id", "police_crime"."crime_type", "police_crime"."description", "police_crime"."location", "police_crime"."station_id", "police_crime"."status", "police_crime"."submitted_by_id" FROM "police_crime" WHERE "police_crime"."id" = 4 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_criminal"."id", "police_criminal"."first_name", "police_criminal"."last_name", "police_criminal"."street", "police_criminal"."city", "police_criminal"."state", "police_criminal"."status", "police_criminal"."gender", "police_criminal"."date_of_birth" FROM "police_criminal"
+
+[REQUEST PATH]: /police/
+[TOTAL TIME]: 0.00 seconds
+[NUMBER OF QUERIES]: 2
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:15:31.794234' AND "django_session"."session_key" = 'c4h15pepnw8yon1fmzm736h6v3npa42c') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 3 LIMIT 21
+
+[REQUEST PATH]: /police/addCriminalToCrime
+[TOTAL TIME]: 0.00 seconds
+[NUMBER OF QUERIES]: 5
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:15:39.760156' AND "django_session"."session_key" = 'c4h15pepnw8yon1fmzm736h6v3npa42c') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 3 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_policemodel"."id", "police_policemodel"."user_id", "police_policemodel"."rank", "police_policemodel"."department", "police_policemodel"."first_name", "police_policemodel"."last_name", "police_policemodel"."phone_number", "police_policemodel"."station_id", "police_policemodel"."current_crime_id", "police_policemodel"."add_by_id" FROM "police_policemodel" WHERE "police_policemodel"."user_id" = 3 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_crime"."id", "police_crime"."crime_type", "police_crime"."description", "police_crime"."location", "police_crime"."station_id", "police_crime"."status", "police_crime"."submitted_by_id" FROM "police_crime" WHERE "police_crime"."id" = 4 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_criminal"."id", "police_criminal"."first_name", "police_criminal"."last_name", "police_criminal"."street", "police_criminal"."city", "police_criminal"."state", "police_criminal"."status", "police_criminal"."gender", "police_criminal"."date_of_birth" FROM "police_criminal"
+
+[REQUEST PATH]: /admin/
+[TOTAL TIME]: 0.01 seconds
+[NUMBER OF QUERIES]: 0
+
+[REQUEST PATH]: /admin/login/
+[TOTAL TIME]: 0.08 seconds
+[NUMBER OF QUERIES]: 0
+
+[REQUEST PATH]: /favicon.ico
+[TOTAL TIME]: 0.01 seconds
+[NUMBER OF QUERIES]: 0
+
+[REQUEST PATH]: /admin/login/
+[TOTAL TIME]: 0.30 seconds
+[NUMBER OF QUERIES]: 6
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."username" = 'test' LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"."session_key" = 'aqaspeadu8mg2pmwsnep79jwio2d2vhi' LIMIT 1
+
+[TIME]: 0.000 seconds
+[SQL]: BEGIN
+
+[TIME]: 0.047 seconds
+[SQL]: INSERT INTO "django_session" ("session_key", "session_data", "expire_date") VALUES ('aqaspeadu8mg2pmwsnep79jwio2d2vhi', 'e30:1t6qZL:FveiMa9rBaRoOn3y3LeeiMKX-07N7IbxHh4lL2Mnhek', '2024-11-15 12:15:59.986864')
+
+[TIME]: 0.000 seconds
+[SQL]: COMMIT
+
+[TIME]: 0.000 seconds
+[SQL]: UPDATE "civilian_customuser" SET "last_login" = '2024-11-01 12:16:00.030390' WHERE "civilian_customuser"."id" = 1
+
+[REQUEST PATH]: /admin/
+[TOTAL TIME]: 0.04 seconds
+[NUMBER OF QUERIES]: 3
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:16:00.039391' AND "django_session"."session_key" = 'aqaspeadu8mg2pmwsnep79jwio2d2vhi') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 1 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_admin_log"."id", "django_admin_log"."action_time", "django_admin_log"."user_id", "django_admin_log"."content_type_id", "django_admin_log"."object_id", "django_admin_log"."object_repr", "django_admin_log"."action_flag", "django_admin_log"."change_message", "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type", "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_admin_log" INNER JOIN "civilian_customuser" ON ("django_admin_log"."user_id" = "civilian_customuser"."id") LEFT OUTER JOIN "django_content_type" ON ("django_admin_log"."content_type_id" = "django_content_type"."id") WHERE "django_admin_log"."user_id" = 1 ORDER BY "django_admin_log"."action_time" DESC LIMIT 10
+
+[REQUEST PATH]: /admin/police/criminal/
+[TOTAL TIME]: 0.06 seconds
+[NUMBER OF QUERIES]: 5
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:16:02.316740' AND "django_session"."session_key" = 'aqaspeadu8mg2pmwsnep79jwio2d2vhi') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 1 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT COUNT(*) AS "__count" FROM "police_criminal"
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT COUNT(*) AS "__count" FROM "police_criminal"
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_criminal"."id", "police_criminal"."first_name", "police_criminal"."last_name", "police_criminal"."street", "police_criminal"."city", "police_criminal"."state", "police_criminal"."status", "police_criminal"."gender", "police_criminal"."date_of_birth" FROM "police_criminal" ORDER BY "police_criminal"."id" DESC
+
+[REQUEST PATH]: /admin/jsi18n/
+[TOTAL TIME]: 0.02 seconds
+[NUMBER OF QUERIES]: 2
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:16:02.392582' AND "django_session"."session_key" = 'aqaspeadu8mg2pmwsnep79jwio2d2vhi') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 1 LIMIT 21
+
+[REQUEST PATH]: /police/
+[TOTAL TIME]: 0.00 seconds
+[NUMBER OF QUERIES]: 2
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:16:05.961385' AND "django_session"."session_key" = 'c4h15pepnw8yon1fmzm736h6v3npa42c') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 3 LIMIT 21
+
+[REQUEST PATH]: /police/addCriminal/
+[TOTAL TIME]: 0.06 seconds
+[NUMBER OF QUERIES]: 3
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:16:14.164383' AND "django_session"."session_key" = 'c4h15pepnw8yon1fmzm736h6v3npa42c') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 3 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_crime"."id", "police_crime"."crime_type", "police_crime"."description", "police_crime"."location", "police_crime"."station_id", "police_crime"."status", "police_crime"."submitted_by_id" FROM "police_crime"
+
+[REQUEST PATH]: /police/addCriminal/
+[TOTAL TIME]: 0.06 seconds
+[NUMBER OF QUERIES]: 8
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:16:35.939918' AND "django_session"."session_key" = 'c4h15pepnw8yon1fmzm736h6v3npa42c') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 3 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_crime"."id", "police_crime"."crime_type", "police_crime"."description", "police_crime"."location", "police_crime"."station_id", "police_crime"."status", "police_crime"."submitted_by_id" FROM "police_crime" WHERE "police_crime"."id" IN (4)
+
+[TIME]: 0.031 seconds
+[SQL]: INSERT INTO "police_criminal" ("first_name", "last_name", "street", "city", "state", "status", "gender", "date_of_birth") VALUES ('hbjkh,bk', 'bkjgv cg', 'dsjbvcfbvkjf', 'VNFLDKERGVBE', 'fcvredsjlogfvh', 'In Jail', 'M', '2005-11-01') RETURNING "police_criminal"."id"
+
+[TIME]: 0.000 seconds
+[SQL]: BEGIN
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_crime"."id" FROM "police_crime" INNER JOIN "police_criminal_crime" ON ("police_crime"."id" = "police_criminal_crime"."crime_id") WHERE "police_criminal_crime"."criminal_id" = 1
+
+[TIME]: 0.000 seconds
+[SQL]: INSERT OR IGNORE INTO "police_criminal_crime" ("criminal_id", "crime_id") VALUES (1, 4)
+
+[TIME]: 0.016 seconds
+[SQL]: COMMIT
+
+[REQUEST PATH]: /police/
+[TOTAL TIME]: 0.00 seconds
+[NUMBER OF QUERIES]: 2
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:16:36.003020' AND "django_session"."session_key" = 'c4h15pepnw8yon1fmzm736h6v3npa42c') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 3 LIMIT 21
+
+[REQUEST PATH]: /police/addCriminalToCrime
+[TOTAL TIME]: 0.01 seconds
+[NUMBER OF QUERIES]: 5
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:16:38.198467' AND "django_session"."session_key" = 'c4h15pepnw8yon1fmzm736h6v3npa42c') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 3 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_policemodel"."id", "police_policemodel"."user_id", "police_policemodel"."rank", "police_policemodel"."department", "police_policemodel"."first_name", "police_policemodel"."last_name", "police_policemodel"."phone_number", "police_policemodel"."station_id", "police_policemodel"."current_crime_id", "police_policemodel"."add_by_id" FROM "police_policemodel" WHERE "police_policemodel"."user_id" = 3 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_crime"."id", "police_crime"."crime_type", "police_crime"."description", "police_crime"."location", "police_crime"."station_id", "police_crime"."status", "police_crime"."submitted_by_id" FROM "police_crime" WHERE "police_crime"."id" = 4 LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "police_criminal"."id", "police_criminal"."first_name", "police_criminal"."last_name", "police_criminal"."street", "police_criminal"."city", "police_criminal"."state", "police_criminal"."status", "police_criminal"."gender", "police_criminal"."date_of_birth" FROM "police_criminal"
+
+[REQUEST PATH]: /police/
+[TOTAL TIME]: 0.00 seconds
+[NUMBER OF QUERIES]: 2
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-11-01 12:16:41.010511' AND "django_session"."session_key" = 'c4h15pepnw8yon1fmzm736h6v3npa42c') LIMIT 21
+
+[TIME]: 0.000 seconds
+[SQL]: SELECT "civilian_customuser"."id", "civilian_customuser"."password", "civilian_customuser"."last_login", "civilian_customuser"."is_superuser", "civilian_customuser"."username", "civilian_customuser"."first_name", "civilian_customuser"."last_name", "civilian_customuser"."email", "civilian_customuser"."is_staff", "civilian_customuser"."is_active", "civilian_customuser"."date_joined", "civilian_customuser"."user_type" FROM "civilian_customuser" WHERE "civilian_customuser"."id" = 3 LIMIT 21
