@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suspect Details</title>
+</head>
+<body>
+    <h1>Suspect Details</h1>
+    <h2>Name: {{ suspect.first_name }} {{ suspect.last_name }}</h2>
+    <p>Phone Number: {{ suspect.phone_number }}</p>
+    <p>Gender: {{ suspect.gender }}</p>
+    <p>Date of Birth: {{ suspect.date_of_birth }}</p>
+    <p>Location: {{ suspect.street }}, {{ suspect.city }}, {{ suspect.state }}</p>
+    <a href="{% url 'crime' suspect.crime.id %}">Back to Crime Details</a>
+</body>
+</html>

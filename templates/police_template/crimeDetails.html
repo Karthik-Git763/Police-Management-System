@@ -31,6 +31,50 @@
         {% endif %}
     </ul>
 
+    <h3>Witnesses</h3>
+    <ul>
+        {% if witnesses %}
+            {% for witness in witnesses %}
+                <li><a href="{% url 'witnessDetail' witness.id %}">{{ witness.first_name }} {{ witness.last_name }}</a></li>
+            {% endfor %}
+        {% else %}
+            <p>No witnesses found for this crime.</p>
+        {% endif %}
+    </ul>
+
+    <h3>Victims</h3>
+    <ul>
+        {% if victims %}
+            {% for victim in victims %}
+                <li><a href="{% url 'victimDetail' victim.id %}">{{ victim.first_name }} {{ victim.last_name }}</a></li>
+            {% endfor %}
+        {% else %}
+            <p>No victims found for this crime.</p>
+        {% endif %}
+    </ul>
+
+    <h3>Suspects</h3>
+    <ul>
+        {% if suspects %}
+            {% for suspect in suspects %}
+            <li><a href="{% url 'suspectDetail' suspect.id %}">{{ suspect.first_name }} {{ suspect.last_name }}</a></li>
+            {% endfor %}
+        {% else %}
+            <p>No suspects found for this crime.</p>
+        {% endif %}
+    </ul>
+
+    <h3>Evidence</h3>
+    <ul>
+        {% if evidences %}
+            {% for evidence in evidences %}
+                <li><a href="{% url 'evidenceDetail' evidence.id %}">{{ evidence.name }}</li></a>
+            {% endfor %}
+        {% else %}
+            <p>No evidence found for this crime.</p>
+        {% endif %}
+    </ul>
+
     <form method="Post",action="">{% csrf_token %}
         <input type="submit" value="Accept This"><!--Change Later-->
         <a href="{% url 'pendingCrimes' %}">Cancel </a>

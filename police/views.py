@@ -77,11 +77,12 @@ def view_crime_details(
         return redirect("policeHome")
     else:
         police = PoliceModel.objects.filter(current_crime=crime)
-        return render(
-            request,
-            "police_template/crimeDetails.html",
-            {"crime": crime, "police": police},
-        )
+        witnesses = Witness.objects.filter(crime=crime)
+        victims = Victim.objects.filter(crime=crime)
+        suspects = Suspect.objects.filter(crime=crime)
+        evidences = Evidence.objects.filter(crime=crime)
+        
+        return render(request, "police_template/crimeDetails.html", {"crime": crime, "police": police, "witnesses": witnesses, "victims": victims, "suspects": suspects, "evidences": evidences})
 
 
 @login_required(login_url="policeLogin")
@@ -291,3 +292,27 @@ def criminal_details(request, id):
     return render(
         request, "police_template/criminalDetails.html", {"criminal": criminal}
     )
+
+@login_required(login_url="policeLogin")
+@user_passes_test(is_police, login_url="policeLogin")
+def witness_detail(request, pk):
+    witness = Witness.objects.get(pk=pk)
+    return render(request, "police_template/witnessDetails.html", {"witness": witness})
+
+@login_required(login_url="policeLogin")
+@user_passes_test(is_police, login_url="policeLogin")
+def victim_detail(request, pk):
+    victim = Victim.objects.get(pk=pk)
+    return render(request, "police_template/victimDetails.html", {"victim": victim})
+
+@login_required(login_url="policeLogin")
+@user_passes_test(is_police, login_url="policeLogin")
+def suspect_detail(request, pk):
+    suspect = Suspect.objects.get(pk=pk)
+    return render(request, "police_template/suspectDetails.html", {"suspect": suspect})
+
+@login_required(login_url="policeLogin")
+@user_passes_test(is_police, login_url="policeLogin")
+def evidence_detail(request, pk):
+    evidence = Evidence.objects.get(pk=pk)
+    return render(request, "police_template/evidenceDetails.html", {"evidence": evidence})
