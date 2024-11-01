@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import choices, timezone
+from django.urls import reverse_lazy
 from civilian.models import CustomUser, CivilianModel
 from policeAdmin.models import AdminModel
 # Create your models here.
@@ -30,6 +31,9 @@ class Crime(models.Model):
 
     def __str__(self):
         return f"{self.crime_type}"
+
+    def get_absolute_url(self):
+        return reverse_lazy("submittedDetails", kwargs={"pk": self.pk})
 
 
 class PoliceModel(models.Model):

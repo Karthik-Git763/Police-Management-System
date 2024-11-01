@@ -2,6 +2,7 @@ from django.shortcuts import HttpResponse, render, redirect
 from django.contrib.auth import login, authenticate, logout
 from .form import RegisterForm, addCrime
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.views.generic import UpdateView
 from .models import CivilianModel
 from police.models import Crime, PoliceModel
 # Create your views here.
@@ -112,3 +113,9 @@ def submitted_crime_details(request, pk):
         )
     else:
         return HttpResponse("You are not authorized")
+
+
+class UpdateCrime(UpdateView):
+    template_name = "civilian_template/updateCrime.html"
+    model = Crime
+    fields = {"crime_type", "location", "station", "description"}

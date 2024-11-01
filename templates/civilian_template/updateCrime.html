@@ -1,0 +1,47 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/civilian/addCrime.css' %}">
+    <title>Add Crime Report</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'civilianHome' %}">Home</a></li>
+            <li><a href="{% url 'civilianLogout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Add Crime Report</h1>
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-row">
+                <label>Type of Crime:</label>
+                {{ form.crime_type }}
+            </div>
+
+            <div class="form-row">
+                <label>Crime Description:</label>
+                {{ form.description }}
+            </div>
+
+            <div class="form-row">
+                <label>Location:</label>
+                {{ form.location }}
+            </div>
+
+            <div class="form-row">
+                <label>Station:</label>
+                {{ form.station }}
+            </div>
+
+            <button type="submit">Submit Report</button>
+        </form>
+    </div>
+</body>
+</html>

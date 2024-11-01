@@ -9,6 +9,10 @@ urlpatterns = [
     path("addCrime/", views.add_Crime, name="addCrime"),
     path("addCrime/success/", views.add_Crime_success, name="success"),
     path("submittedCrimes", views.crime_submitted, name="submittedCrimes"),
-    path("submittedCrimes/<int:pk>", views.submitted_crime_details, name="submittedDetails"),
+    path(
+        "submittedCrimes/<int:pk>",
+        views.submitted_crime_details,
+        name="submittedDetails",
+    ),
+    path("updateCrime/<int:pk>", views.UpdateCrime.as_view(), name="crimeUpdate"),
 ]
-
