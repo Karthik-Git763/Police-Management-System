@@ -1,23 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Civilian Home</title>
+    <title>Submitted Crimes</title>
+    <link rel="stylesheet" href="{% static 'css/civilian/submittedCrime.css' %}">
+
 </head>
 <body>
-    <h2>Submitted crime details</h2>
-    <p>Welcome, {{request.user.username}}!</p>
-    {% if crimes %} 
-      {% for crime in crimes %}
-    <h3><a href="{% url 'submittedDetails' crime.id %}">{{crime.crime_type}}</a></h3>
-      <p>{{crime.description}}
-      <br>
-      </p>
-      {% endfor %}
-    {% else %}
-    <h3>No Crimes Submitted Till Now</h3>
-    {% endif %}
-    <a href="{% url 'civilianHome' %}">Home</a>
+    <nav>
+      <a href="{% url 'civilianHome' %}">Home</a>
+    </nav>
+    <div class="container">
+      <h2>Submitted Crimes</h2>
+      <p class="welcome">Welcome, {{request.user.username}}!</p>
+      {% if crimes %} 
+        {% for crime in crimes %}
+      <h3 class="crime"><a href="{% url 'submittedDetails' crime.id %}">{{crime.crime_type}}</a></h3>
+        <p>{{crime.description}}
+        <br>
+        </p>
+        {% endfor %}
+      {% else %}
+      <h3 class="no-crimes">No Crimes Submitted Till Now</h3>
+      {% endif %}
+    </div>
 </body>
 </html>
