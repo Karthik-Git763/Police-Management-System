@@ -3,6 +3,8 @@ from django.contrib.auth import login, authenticate, logout
 from .form import RegisterForm, addCrime
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.views.generic import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse, request
 from .models import CivilianModel
 from police.models import Crime, PoliceModel
 # Create your views here.
@@ -115,7 +117,11 @@ def submitted_crime_details(request, pk):
         return HttpResponse("You are not authorized")
 
 
-class UpdateCrime(UpdateView):
+class UpdateCrime(LoginRequiredMixin, UpdateView):
     template_name = "civilian_template/updateCrime.html"
     model = Crime
     fields = {"crime_type", "location", "station", "description"}
+
+    def get_queryset(self):  # to now allow other users to edit data by going to the url
+        civilian = CivilianModel.objects.get(user=self.request.user)
+        return Crime.objects.filter(submitted_by=civilian)
