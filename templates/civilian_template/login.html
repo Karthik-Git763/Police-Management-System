@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="{% static 'css/civilian/login.css' %}">
 </head>
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'home' %}">Main Home</a></li>
+        </ul>
+    </nav>
     <div class="form-container">
         <h2>Civilian Login</h2>
         <form method="POST" action="{% url 'civilianLogin' %}">
