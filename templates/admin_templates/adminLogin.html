@@ -1,33 +1,47 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <style>
-        .error {
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/admin/login.css' %}">
 </head>
 <body>
-    <h2>Admin Login</h2>
-    <form method="POST" action="{% url 'adminLogin' %}">
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{next}}">
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="text" name="password" id="password" required>
-        </div>
-        <button type="submit">Login</button>
-    </form>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'home' %}">Main Home</a></li>
+        </ul>
+    </nav>
+    <div class="form-container">
+        <h2>Admin Login</h2>
+        <form method="POST" action="{% url 'adminLogin' %}">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{next}}">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
 
-    {% if errorMsg %}
-        <p class="error">{{ errorMsg }}</p>
-    {% endif %}
+        {% if errorMsg %}
+            <p class="error" id="error-message">{{ errorMsg }}</p>
+        {% endif %}
+    </div>
+    <script>
+        window.onload = function() {
+            const errorMessage = document.getElementById('error-message');
+            if (errorMessage) {
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }
+        };
+    </script>
 </body>
 </html>

@@ -1,18 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Station</title>
+    <link rel="stylesheet" href="{% static 'css/admin/addStation.css' %}">
 </head>
 <body>
-    <div >
-        <h2>Add Station</h2>
-        <p>Welcome, {{request.user.username}}!</p>
-        <form method="Post">{% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Add"><br>
-            <a href="{% url 'adminHome' %}">Cancel</a>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'adminHome' %}">Home</a></li>
+            <li><a href="{% url 'adminLogout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Add Station</h1>
+        <p>Welcome {{request.user.username}}!</p>
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-row">
+                <label>Location:</label>
+                {{ form.location }}
+            </div>
+
+            <div class="form-row">
+                <label>Phone Number:</label>
+                {{ form.phone_number }}
+            </div>
+
+            <div class="button1">
+                <button type="submit">Submit</button>
+                <button><a href="{% url 'adminHome' %}">Cancel</a></button>
+            </div>
         </form>
     </div>
 </body>
