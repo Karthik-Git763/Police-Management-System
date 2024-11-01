@@ -1,35 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Civilian Home</title>
+    <title>Submitted Crime Details</title>
+    <link rel="stylesheet" href="{% static 'css/civilian/submittedDetails.css' %}">
 </head>
 <body>
-    <h1>Submitted crime details</h1>
-    <p>Welcome, {{request.user.username}}!</p>
-    <h2>{{crime.crime_type}}</h2>
-      <p>
-        <ul>
-        <li>Description: {{crime.description}}</li>
-        <li>Status: {{crime.status}}</li>
-        <li>Location: {{crime.location}}</li>
-        <li>Station: {{crime.station}}</li>
-        </ul>
-        <h4>Police Officers investigating</h4>
-        {% if policeOfficers %}
-        <ol>
-          {% for police in policeOfficers %}
-            <li>Name: {{police.first_name}} {{police.last_name}}
-              <br>
-              Phone No: {{police.phone_number}}
-            </li>
-          {% endfor %}
-        </ol>
+  <nav>
+    <div>
+      <a href="{% url 'civilianHome' %}">Home</a>
+      <a href="{% url 'submittedCrimes' %}">Submitted Crimes</a>
+    </div>
+  </nav>
+  <div class="container">
+      <h1>Submitted crime details</h1>
+      <p class="welcome">Welcome, {{request.user.username}}!</p>
+      <h2>{{crime.crime_type}}</h2>
+      <ul>
+        <li><b>Description:</b> {{ crime.description }}</li>
+        <li><b>Status:</b> {{ crime.status }}</li>
+        <li><b>Location:</b> {{ crime.location }}</li>
+        <li><b>Station:</b> {{ crime.station }}</li>
+      </ul>
+      {% if policeOfficers %}
+      <h4>Police Officers Investigating</h4>
+          <ol>
+              {% for police in policeOfficers %}
+                  <li>
+                      <p><b>Name:</b> {{ police.first_name }} {{ police.last_name }}<br></p>
+                      <p><b>Phone No:</b> {{ police.phone_number }}</p>
+                  </li>
+              {% endfor %}
+          </ol>
+          
         {% else %}
-          No officer currently investigating
+        <p class="no-officers">No officer currently investigating</p>
         {% endif %}
       </p>
-      <a href="{% url 'civilianHome' %}">Home</a>
+    </div>
 </body>
 </html>
