@@ -1,18 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Update Evidence</title>
+    <link rel="stylesheet" href="{% static 'css/police/addEvidence.css' %}">
 </head>
 <body>
-    <h1>Update Evidence</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label>Name: {{form.name}}</label>
-        <br>
-        <label>Description: {{form.description}}</label>
-        <br>
-        <button type="submit">Update Evidence</button>
-        <a href="{% url 'policeHome' %}" style="text-decoration: none;">Cancel</a><br>
-    </form>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'policeHome' %}">Home</a></li>
+            <li><a href="{% url 'crime' evidence.crime.id %}">Selected Crime Details</a></li>
+            <li><a href="{% url 'policeLogout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Update Evidence</h1>
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-row">
+                <label>Name:</label>
+                {{ form.name }}
+            </div>
+
+            <div class="form-row">
+                <label>Description:</label>
+                {{ form.description }}
+            </div>
+
+            <div class="button1">
+                <button type="submit">Update Evidence</button>
+                <button><a href="{% url 'evidenceDetail' evidence.id %}">Cancel</a></button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

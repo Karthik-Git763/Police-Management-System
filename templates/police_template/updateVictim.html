@@ -1,30 +1,68 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Update Victim</title>
+    <link rel="stylesheet" href="{% static 'css/police/addVictim.css' %}">
 </head>
 <body>
-    <h1>Update Witness</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label>First Name: {{form.first_name}}</label>
-        <br>
-        <label>Last Name: {{form.last_name}}</label>
-        <br>
-        <label>Date of Birth: {{form.date_of_birth}}</label>
-        <br>
-        <label>Phone Number: {{form.phone_number}}</label>
-        <br>
-        <label>Gender: {{form.gender}}</label>
-        <br>
-        <label>Street: {{form.street}}</label>
-        <br>
-        <label>City: {{form.city}}</label>
-        <br>
-        <label>State: {{form.state}}</label>
-        <br>
-        <button type="submit">Update Victim</button>
-        <a href="{% url 'policeHome' %}" style="text-decoration: none;">Cancel</a><br>
-    </form>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'policeHome' %}">Home</a></li>
+            <li><a href="{% url 'crime' victim.crime.id %}">Selected Crime Details</a></li>
+            <li><a href="{% url 'policeLogout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Update Victim</h1>
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-row">
+                <label>First Name:</label>
+                {{ form.first_name }}
+            </div>
+
+            <div class="form-row">
+                <label>Last Name:</label>
+                {{ form.last_name }}
+            </div>
+
+            <div class="form-row">
+                <label>Phone Number:</label>
+                {{ form.phone_number }}
+            </div>
+
+            <div class="form-row">
+                <label>Gender:</label>
+                {{ form.gender }}
+            </div>
+
+            <div class="form-row">
+                <label>Date Of Birth:</label>
+                {{ form.date_of_birth }}
+            </div>
+
+            <div class="form-row">
+                <label>Street:</label>
+                {{ form.street }}
+            </div>
+
+            <div class="form-row">
+                <label>City:</label>
+                {{ form.city }}
+            </div>
+            
+            <div class="form-row">
+                <label>State:</label>
+                {{ form.state }}
+            </div>
+
+            <div class="button1">
+                <button type="submit">Update Victim</button>
+                <button><a href="{% url 'victimDetail' victim.id %}">Cancel</a></button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
