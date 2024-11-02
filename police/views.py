@@ -45,7 +45,9 @@ def logout_police(request):
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police, login_url="policeLogin")
 def home_police(request):
-    return render(request, "police_template/home.html")
+    police = PoliceModel.objects.get(user=request.user)
+    current_crime = police.current_crime
+    return render(request, "police_template/home.html", {'current_crime': current_crime})
 
 
 @login_required(login_url="policeLogin")
