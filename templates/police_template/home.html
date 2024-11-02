@@ -1,38 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Police Home</title>
     <style>
-    .error {
-        color: red;
-    }
-    .success {
-        color: green;
-    }
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
     </style>
+        <link rel="stylesheet" href="{% static 'css/police/policehome.css' %}">
 </head>
+
 <body>
     <h2>Police Home</h2>
     <p>Welcome, {{request.user.username}}!</p><br>
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
         {% endfor %}
     </ul>
     {% endif %}
-
-    <a href="{% url 'policeLogout' %}" style="text-decoration: none;">Logout</a><br>
+    <div class="subs">
     <a href="{% url 'pendingCrimes' %}" style="text-decoration: none;">Select Crimes to investigate</a><br>
     <a href="{% url 'cancelCrime' %}" style="text-decoration: none;">Cancel Current selected crime</a><br>
-    <a href="{% url 'addWitness' %}" >Add Witness</a><br>
+    <a href="{% url 'addWitness' %}">Add Witness</a><br>
     <a href="{% url 'addEvidence' %}">Add Evidence</a><br>
-    <a href="{% url 'addSuspect' %}" >Add Suspect</a><br>
+    <a href="{% url 'addSuspect' %}">Add Suspect</a><br>
     <a href="{% url 'addVictim' %}">Add Victim</a><br>
     <a href="{% url 'addCriminal' %}">Add New Criminals</a><br>
     <a href="{% url 'addCriminalToCrime' %}">Add Criminals to Current Crime</a><br>
     <a href="{% url 'viewCriminals' %}">View Criminals</a><br>
+    <a href="{% url 'policeLogout' %}" style="text-decoration: none;">Logout</a><br>
+    </div>
+
 </body>
+
 </html>

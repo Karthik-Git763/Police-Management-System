@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    /* margin: 0;
+    padding:display: flex; 0; */
+    /*  */
+    /* justify-content: center;
+    align-items: center; */
+    height: 100vh;
+}
+h2{
+    text-align: center;
+    color: darkblue;
+    padding-top: 10px;
+    display: block;
+}
+p{
+    text-align: center;
+    color: darkblue;
+    display: block;
+}
+.subs{
+    padding: 100px;
+    padding-left: 300px;
+}
+a{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    /* display: block; */
+    background-color: #007BFF;
+    background-size: contain;
+    text-decoration: none;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+a:hover {
+    background-color: blue;
+}
