@@ -28,9 +28,7 @@
         {% endfor %}
     </ul>
     {% endif %}
-<<<<<<< HEAD
     <div class="subs">
-=======
 
     {% if current_crime %}
     <p class="current-crime">
@@ -40,7 +38,6 @@
     {% endif %}
 
     <a href="{% url 'policeLogout' %}" style="text-decoration: none;">Logout</a><br>
->>>>>>> 8b8bacc220548e7563bc1bd01d9951e7d6a70f4f
     <a href="{% url 'pendingCrimes' %}" style="text-decoration: none;">Select Crimes to investigate</a><br>
     <a href="{% url 'cancelCrime' %}" style="text-decoration: none;">Cancel Current selected crime</a><br>
     <a href="{% url 'addWitness' %}">Add Witness</a><br>
