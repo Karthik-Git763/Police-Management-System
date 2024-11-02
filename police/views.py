@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.views.generic import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Crime, PoliceModel, Evidence
 from .form import *
 from .form import WitnessForm, EvidenceForm, CriminalForm
@@ -43,7 +45,9 @@ def logout_police(request):
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police, login_url="policeLogin")
 def home_police(request):
-    return render(request, "police_template/home.html")
+    police = PoliceModel.objects.get(user=request.user)
+    current_crime = police.current_crime
+    return render(request, "police_template/home.html", {'current_crime': current_crime})
 
 
 @login_required(login_url="policeLogin")
@@ -81,8 +85,19 @@ def view_crime_details(
         victims = Victim.objects.filter(crime=crime)
         suspects = Suspect.objects.filter(crime=crime)
         evidences = Evidence.objects.filter(crime=crime)
-        
-        return render(request, "police_template/crimeDetails.html", {"crime": crime, "police": police, "witnesses": witnesses, "victims": victims, "suspects": suspects, "evidences": evidences})
+
+        return render(
+            request,
+            "police_template/crimeDetails.html",
+            {
+                "crime": crime,
+                "police": police,
+                "witnesses": witnesses,
+                "victims": victims,
+                "suspects": suspects,
+                "evidences": evidences,
+            },
+        )
 
 
 @login_required(login_url="policeLogin")
@@ -293,11 +308,13 @@ def criminal_details(request, id):
         request, "police_template/criminalDetails.html", {"criminal": criminal}
     )
 
+
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police, login_url="policeLogin")
 def witness_detail(request, pk):
     witness = Witness.objects.get(pk=pk)
     return render(request, "police_template/witnessDetails.html", {"witness": witness})
+
 
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police, login_url="policeLogin")
@@ -305,14 +322,127 @@ def victim_detail(request, pk):
     victim = Victim.objects.get(pk=pk)
     return render(request, "police_template/victimDetails.html", {"victim": victim})
 
+
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police, login_url="policeLogin")
 def suspect_detail(request, pk):
     suspect = Suspect.objects.get(pk=pk)
     return render(request, "police_template/suspectDetails.html", {"suspect": suspect})
 
+
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police, login_url="policeLogin")
 def evidence_detail(request, pk):
     evidence = Evidence.objects.get(pk=pk)
-    return render(request, "police_template/evidenceDetails.html", {"evidence": evidence})
+    return render(
+        request, "police_template/evidenceDetails.html", {"evidence": evidence}
+    )
+
+
+# to do add update option to all_criminals
+class UpdateWitness(LoginRequiredMixin, UpdateView):
+    template_name = "police_template/updateWitness.html"
+    model = Witness
+    fields = {
+        "first_name",
+        "last_name",
+        "statement",
+        "phone_number",
+        "gender",
+        "street",
+        "city",
+        "state",
+    }
+
+    def dispatch(self, request, *args, **kwargs):
+        currentWitness = self.get_object()
+        police = PoliceModel.objects.get(user=self.request.user)
+        witness = Witness.objects.filter(
+            crime=police.current_crime, id=currentWitness.id
+        )
+        if not witness.exists():
+            messages.error(
+                request,
+                "You can only change witness of crime you are currently investigating",
+            )
+            return redirect(reverse("policeHome"))
+        return super().dispatch(request, *args, **kwargs)
+
+
+class UpdateVictim(LoginRequiredMixin, UpdateView):
+    template_name = "police_template/updateVictim.html"
+    model = Victim
+    fields = {
+        "first_name",
+        "last_name",
+        "date_of_birth",
+        "phone_number",
+        "gender",
+        "street",
+        "city",
+        "state",
+    }
+
+    def dispatch(self, request, *args, **kwargs):
+        currentVictim = self.get_object()
+        police = PoliceModel.objects.get(user=self.request.user)
+        victim = Victim.objects.filter(crime=police.current_crime, id=currentVictim.id)
+        if not victim.exists():
+            messages.error(
+                request,
+                "You can only change victim of crime you are currently investigating",
+            )
+            return redirect(reverse("policeHome"))
+        return super().dispatch(request, *args, **kwargs)
+
+
+class UpdateEvidence(LoginRequiredMixin, UpdateView):
+    template_name = "police_template/updateEvidence.html"
+    model = Evidence
+    fields = {
+        "name",
+        "description",
+    }
+
+    def dispatch(self, request, *args, **kwargs):
+        currentEvidence = self.get_object()
+        police = PoliceModel.objects.get(user=self.request.user)
+        evidence = Evidence.objects.filter(
+            crime=police.current_crime, id=currentEvidence.id
+        )
+        if not evidence.exists():
+            messages.error(
+                request,
+                "You can only change evidence of crime you are currently investigating",
+            )
+            return redirect(reverse("policeHome"))
+        return super().dispatch(request, *args, **kwargs)
+
+
+class UpdateSuspect(LoginRequiredMixin, UpdateView):
+    template_name = "police_template/updateSuspect.html"
+    model = Suspect
+    fields = {
+        "first_name",
+        "last_name",
+        "date_of_birth",
+        "phone_number",
+        "gender",
+        "street",
+        "city",
+        "state",
+    }
+
+    def dispatch(self, request, *args, **kwargs):
+        currentSuspect = self.get_object()
+        police = PoliceModel.objects.get(user=self.request.user)
+        suspect = Suspect.objects.filter(
+            crime=police.current_crime, id=currentSuspect.id
+        )
+        if not suspect.exists():
+            messages.error(
+                request,
+                "You can only change Suspect of crime you are currently investigating",
+            )
+            return redirect(reverse("policeHome"))
+        return super().dispatch(request, *args, **kwargs)
