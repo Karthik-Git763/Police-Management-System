@@ -10,18 +10,70 @@
     <link rel="stylesheet" href="{% static 'css/police/addcriminal.css' %}">
 </head>
 <body>
-    <div >
-        <h2>Add Criminal</h2>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'policeHome' %}">Home</a></li>
+            <li><a href="{% url 'policeLogout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="order">
+        <h1>Add Criminal</h1>
         <p>Welcome, {{request.user.username}}!</p>
-        <div class="order">
-        <form method="Post">{% csrf_token %}
-            {{ form.as_p }}
-            <p><small>( Hold ctrl to select more than one )</small>:</p>
-            <input type="submit" value="Add"><br>
-            <a href="{% url 'policeHome' %}">Cancel</a>
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-row">
+                <label>First Name:</label>
+                {{ form.first_name }}
+            </div>
+
+            <div class="form-row">
+                <label>Last Name:</label>
+                {{ form.last_name }}
+            </div>
+
+            <div class="form-row">
+                <label>Status:</label>
+                {{ form.status }}
+            </div>
+
+            <div class="form-row">
+                <label>Gender:</label>
+                {{ form.gender }}
+            </div>
+
+            <div class="form-row">
+                <label>Date Of Birth:</label>
+                {{ form.date_of_birth }}
+            </div>
+
+            <div class="form-row">
+                <label>Street:</label>
+                {{ form.street }}
+            </div>
+
+            <div class="form-row">
+                <label>City:</label>
+                {{ form.city }}
+            </div>
+            
+            <div class="form-row">
+                <label>State:</label>
+                {{ form.state }}
+            </div>
+
+            <div class="form-row">
+                <label>Crime:</label>
+                {{ form.crime }}
+            </div>
+            <p><small>( Hold ctrl to select more than one crime )</small>:</p>
+            <div class="button1">
+                <button type="submit">Submit</button>
+                <button><a href="{% url 'policeHome' %}">Cancel</a></button>
+            </div>
         </form>
     </div>
-    </div>
+
     
     <script>
         $(document).ready(function() {
