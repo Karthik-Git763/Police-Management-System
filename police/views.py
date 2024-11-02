@@ -415,3 +415,32 @@ class UpdateEvidence(LoginRequiredMixin, UpdateView):
             )
             return redirect(reverse("policeHome"))
         return super().dispatch(request, *args, **kwargs)
+
+
+class UpdateSuspect(LoginRequiredMixin, UpdateView):
+    template_name = "police_template/updateSuspect.html"
+    model = Suspect
+    fields = {
+        "first_name",
+        "last_name",
+        "date_of_birth",
+        "phone_number",
+        "gender",
+        "street",
+        "city",
+        "state",
+    }
+
+    def dispatch(self, request, *args, **kwargs):
+        currentSuspect = self.get_object()
+        police = PoliceModel.objects.get(user=self.request.user)
+        suspect = Suspect.objects.filter(
+            crime=police.current_crime, id=currentSuspect.id
+        )
+        if not suspect.exists():
+            messages.error(
+                request,
+                "You can only change Suspect of crime you are currently investigating",
+            )
+            return redirect(reverse("policeHome"))
+        return super().dispatch(request, *args, **kwargs)

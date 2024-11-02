@@ -30,4 +30,5 @@ urlpatterns = [
     path(
         "updateEvidence/<int:pk>", views.UpdateEvidence.as_view(), name="updateEvidence"
     ),
+    path("updateSuspect/<int:pk>", views.UpdateSuspect.as_view(), name="updateSuspect"),
 ]

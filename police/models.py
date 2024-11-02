@@ -89,6 +89,9 @@ class Suspect(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+    def get_absolute_url(self):
+        return reverse_lazy("suspectDetail", kwargs={"pk": self.pk})
+
 
 class Victim(models.Model):
     genderChoice = [("M", "Male"), ("F", "Female")]

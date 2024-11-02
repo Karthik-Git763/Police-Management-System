@@ -13,5 +13,6 @@
     <p>Date of Birth: {{ suspect.date_of_birth }}</p>
     <p>Location: {{ suspect.street }}, {{ suspect.city }}, {{ suspect.state }}</p>
     <a href="{% url 'crime' suspect.crime.id %}">Back to Crime Details</a>
+    <a href="{% url 'updateSuspect' suspect.id %}"><button>Update</button></a>
 </body>
 </html>
