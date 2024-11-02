@@ -1,0 +1,18 @@
+h2,.p{
+    text-align: center;
+    color: darkblue;
+    padding-left: 10px;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    
+    display: flex;
+    
+    
+    height: 100vh;
+}
+.container{
+    font-size: larger;
+    
+}

@@ -9,7 +9,7 @@
 </head>
 <body>
     <h2>Pending Crimes</h2>
-    <p>Welcome, {{request.user.username}}!</p>
+    <div class="p"><p>Welcome, {{request.user.username}}!</p></div>
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -18,7 +18,7 @@
     </ul>
     {% endif %}
     {% for crime in crimes %}
-        <h2><a href="{% url 'crime' crime.id %}">{{crime.crime_type}}</a></h2><!--Check if correct later-->
+        <h3><a href="{% url 'crime' crime.id %}">{{crime.crime_type}}</a></h3><!--Check if correct later-->
         {% if crime.description|length > 50 %}
             <p>{{ crime.description|slice:":50" }}...</p>
         {% else %}

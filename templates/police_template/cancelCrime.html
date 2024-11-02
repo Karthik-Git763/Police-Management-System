@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Police Logout</title>
+    <link rel="stylesheet" href="{% static 'css/police/cancelcrime.css' %}">
 </head>
 <body>
     <div class="container">
@@ -13,7 +15,7 @@
         <p>Change status of current selected crime if needed</p>
         <form method="POST">
             {% csrf_token %}
-            <label for="options">Choose an option for status of the crime:{{crime.crime_type}}:</label>
+            <label for="options">Choose an option for status of the crime:{{crime.crime_type}}:</label><br>
             <select id="options" name="status">
                 <option value="Request Pending">Deselect this crime</option>
                 {% comment %} <option value="Similiar Repoted">Similar crime already reported</option> {% endcomment %}
