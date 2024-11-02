@@ -12,6 +12,7 @@
     <p>Gender: {{ victim.gender }}</p>
     <p>Location: {{ victim.street }}, {{ victim.city }}, {{ victim.state }}</p>
     <p>Date of Birth: {{ victim.date_of_birth }}</p>
+    <a href="{% url 'updateVictim' victim.id %}"><button>Update</button></a>
     <a href="{% url 'crime' victim.crime.id %}">Back to Crime Details</a>
 </body>
 </html>

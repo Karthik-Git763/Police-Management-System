@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Victim</title>
+</head>
+<body>
+    <h1>Update Witness</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>First Name: {{form.first_name}}</label>
+        <br>
+        <label>Last Name: {{form.last_name}}</label>
+        <br>
+        <label>Date of Birth: {{form.date_of_birth}}</label>
+        <br>
+        <label>Phone Number: {{form.phone_number}}</label>
+        <br>
+        <label>Gender: {{form.gender}}</label>
+        <br>
+        <label>Street: {{form.street}}</label>
+        <br>
+        <label>City: {{form.city}}</label>
+        <br>
+        <label>State: {{form.state}}</label>
+        <br>
+        <button type="submit">Update Victim</button>
+        <a href="{% url 'policeHome' %}" style="text-decoration: none;">Cancel</a><br>
+    </form>
+</body>
+</html>

@@ -14,5 +14,6 @@
     <p>Location: {{ witness.street }}, {{ witness.city }}, {{ witness.state }}</p>
     <p>Date of Birth: {{ witness.date_of_birth }}</p>
     <a href="{% url 'crime' witness.crime.id %}">Back to Crime Details</a>
+    <a href ="{% url 'updateWitness' witness.id %}"><button>Update</button></a>
 </body>
 </html>
