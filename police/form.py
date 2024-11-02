@@ -16,6 +16,9 @@ class WitnessForm(forms.ModelForm):
             "city",
             "state",
         ]
+        widgets = {
+            'statement': forms.Textarea(attrs={'rows':6, 'cols':35}),
+        }
 
 
 class EvidenceForm(forms.ModelForm):
