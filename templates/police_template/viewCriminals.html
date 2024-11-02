@@ -1,15 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criminals</title>
+    <link rel="stylesheet" href="{% static 'css/police/viewcriminals.css' %}">
 </head>
 <body>
-    <h2>Pending Crimes</h2>
+    <h2>Criminals</h2>
     <p>Welcome, {{request.user.username}}!</p>
     {% for criminal in criminals %}
-        <h2><a href="{% url 'criminalDetails' criminal.id %}">{{criminal.first_name}}</a></h2><!--Check if correct later-->
+        <h3><a href="{% url 'criminalDetails' criminal.id %}">{{criminal.first_name}}</a></h3><!--Check if correct later-->
         <p>
           <h3>Crimes</h3>
             <ul>

@@ -1,0 +1,39 @@
+/* body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+} */
+h2{
+    text-align: center;
+    color: darkblue;
+    padding-left: 10px;
+}
+p{
+    text-align: center;
+    color: darkblue;
+}
+form{
+    text-align: center;
+}
+input [type="submit"]{
+    display: inline-block;
+    background-color: darkblue;
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+    background-color: darkblue;
+    color: white;
+    border-radius: 4px;
+    padding: 3px;
+} 
