@@ -14,7 +14,7 @@
         <form method="POST" action="{% url 'policeLogout' %}">
             {% csrf_token %}
             <button type="submit">Logout</button>
-            <a href="{% url 'policeHome' %}" style="text-decoration: none;">Cancel</a>
+            <button><a href="{% url 'policeHome' %}">Cancel</a></button>
         </form>
     </div>
 </body>

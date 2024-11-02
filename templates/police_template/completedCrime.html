@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Completed Crimes</title>
+    <link rel="stylesheet" href="{% static 'css/police/completedCrime.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'policeHome' %}">Home</a></li>
+            <li><a href="{% url 'policeLogout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div>
+        <h1>Completed Crimes</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Crime ID</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for crime in completed_crimes %}
+                <tr>
+                    <td>{{ crime.id }}</td>
+                    <td>{{ crime.description }}</td>
+                    <td>{{ crime.date }}</td>
+                    <td>{{ crime.location }}</td>
+                    <td>{{ crime.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -6,14 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Police Login</title>
-    <style>
-        .error {
-            color: red;
-        }
-    </style>
     <link rel="stylesheet" href="{% static 'css/police/policelogin.css' %}">
 </head>
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'home' %}">Main Home</a></li>
+        </ul>
+    </nav>
     <div class="form-container">
     <h2>Police Login</h2>
     <form method="POST" action="{% url 'policeLogin' %}">
@@ -29,9 +29,19 @@
         </div>
         <button type="submit">Login</button>
     </form>
-</div>
     {% if error %}
-        <p class="error">{{ error }}</p>
+        <p class="error" id="error-message">{{ error }}</p>
     {% endif %}
+</div>
+<script>
+    window.onload = function() {
+        const errorMessage = document.getElementById('error-message');
+        if (errorMessage) {
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
+    };
+</script>
 </body>
 </html>
