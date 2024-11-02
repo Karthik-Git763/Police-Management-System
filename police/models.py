@@ -68,6 +68,9 @@ class Witness(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+    def get_absolute_url(self):
+        return reverse_lazy("witnessDetail", kwargs={"pk": self.pk})
+
 
 class Suspect(models.Model):
     genderChoice = [("M", "Male"), ("F", "Female")]
@@ -103,6 +106,9 @@ class Victim(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
+    def get_absolute_url(self):
+        return reverse_lazy("victimDetail", kwargs={"pk": self.pk})
 
 
 class Evidence(models.Model):
