@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Evidence</title>
+</head>
+<body>
+    <h1>Update Evidence</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Name: {{form.name}}</label>
+        <br>
+        <label>Description: {{form.description}}</label>
+        <br>
+        <button type="submit">Update Evidence</button>
+        <a href="{% url 'policeHome' %}" style="text-decoration: none;">Cancel</a><br>
+    </form>
+</body>
+</html>

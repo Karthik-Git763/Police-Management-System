@@ -121,6 +121,9 @@ class Evidence(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse_lazy("evidenceDetail", kwargs={"pk": self.pk})
+
 
 class Criminal(models.Model):
     statusChoice = [("In Jail", "In Jail"), ("Free", "Free")]

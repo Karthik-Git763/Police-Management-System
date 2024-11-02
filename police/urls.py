@@ -27,4 +27,7 @@ urlpatterns = [
     path("evidence/<int:pk>/", views.evidence_detail, name="evidenceDetail"),
     path("updateWitness/<int:pk>", views.UpdateWitness.as_view(), name="updateWitness"),
     path("updateVictim/<int:pk>", views.UpdateVictim.as_view(), name="updateVictim"),
+    path(
+        "updateEvidence/<int:pk>", views.UpdateEvidence.as_view(), name="updateEvidence"
+    ),
 ]

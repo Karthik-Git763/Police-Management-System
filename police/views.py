@@ -361,7 +361,7 @@ class UpdateWitness(LoginRequiredMixin, UpdateView):
         if not witness.exists():
             messages.error(
                 request,
-                "U can only change witness of crime you are currently investigating",
+                "You can only change witness of crime you are currently investigating",
             )
             return redirect(reverse("policeHome"))
         return super().dispatch(request, *args, **kwargs)
@@ -388,7 +388,30 @@ class UpdateVictim(LoginRequiredMixin, UpdateView):
         if not victim.exists():
             messages.error(
                 request,
-                "U can only change victim of crime you are currently investigating",
+                "You can only change victim of crime you are currently investigating",
+            )
+            return redirect(reverse("policeHome"))
+        return super().dispatch(request, *args, **kwargs)
+
+
+class UpdateEvidence(LoginRequiredMixin, UpdateView):
+    template_name = "police_template/updateEvidence.html"
+    model = Evidence
+    fields = {
+        "name",
+        "description",
+    }
+
+    def dispatch(self, request, *args, **kwargs):
+        currentEvidence = self.get_object()
+        police = PoliceModel.objects.get(user=self.request.user)
+        evidence = Evidence.objects.filter(
+            crime=police.current_crime, id=currentEvidence.id
+        )
+        if not evidence.exists():
+            messages.error(
+                request,
+                "You can only change evidence of crime you are currently investigating",
             )
             return redirect(reverse("policeHome"))
         return super().dispatch(request, *args, **kwargs)
