@@ -25,6 +25,9 @@ class EvidenceForm(forms.ModelForm):
     class Meta:
         model = Evidence
         fields = ["name", "date", "description"]
+        widgets = {
+            'description': forms.Textarea(attrs={'rows':6, 'cols':35}),
+        }
 
 
 class SuspectForm(forms.ModelForm):
