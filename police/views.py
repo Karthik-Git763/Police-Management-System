@@ -48,7 +48,11 @@ def home_police(request):
     police = PoliceModel.objects.get(user=request.user)
     current_crime = police.current_crime
     officer_id = police.id
-    return render(request, "police_template/home.html", {'current_crime': current_crime, 'officer_id':officer_id})
+    return render(
+        request,
+        "police_template/home.html",
+        {"current_crime": current_crime, "officer_id": officer_id},
+    )
 
 
 @login_required(login_url="policeLogin")
@@ -447,14 +451,33 @@ class UpdateSuspect(LoginRequiredMixin, UpdateView):
             )
             return redirect(reverse("policeHome"))
         return super().dispatch(request, *args, **kwargs)
-    
+
+
+class UpdateCriminal(LoginRequiredMixin, UpdateView):
+    template_name = "police_template/updateCriminal.html"
+    model = Criminal
+    fields = {
+        "first_name",
+        "last_name",
+        "date_of_birth",
+        "gender",
+        "street",
+        "city",
+        "state",
+        "status",
+    }
+
 
 @login_required(login_url="policeLogin")
 @user_passes_test(is_police, login_url="policeLogin")
 def completed_crimes_view(request, officer_id):
     officer = PoliceModel.objects.get(id=officer_id)
     completed_crimes = Crime.objects.filter(status="Completed")
-    return render(request, 'police_template/completedCrime.html', {'completed_crimes': completed_crimes})
+    return render(
+        request,
+        "police_template/completedCrime.html",
+        {"completed_crimes": completed_crimes},
+    )
 
 
 @login_required(login_url="policeLogin")
