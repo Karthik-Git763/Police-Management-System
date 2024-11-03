@@ -22,10 +22,3 @@ class CivilianModel(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class Feedback(models.Model):
-    date = models.DateTimeField(auto_now=True)
-    feedback_body = models.TextField()
-    provided_by = models.ForeignKey(CivilianModel, on_delete=models.CASCADE)
-    # crime to

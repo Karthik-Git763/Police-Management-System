@@ -457,6 +457,8 @@ def completed_crimes_view(request, officer_id):
     return render(request, 'police_template/completedCrime.html', {'completed_crimes': completed_crimes})
 
 
+@login_required(login_url="policeLogin")
+@user_passes_test(is_police, login_url="policeLogin")
 def completeCrime(request):
     if request.method == "POST":
         user = request.user
