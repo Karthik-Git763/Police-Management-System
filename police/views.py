@@ -455,3 +455,17 @@ def completed_crimes_view(request, officer_id):
     officer = PoliceModel.objects.get(id=officer_id)
     completed_crimes = Crime.objects.filter(station=officer.station, status="Completed")
     return render(request, 'police_template/completedCrime.html', {'completed_crimes': completed_crimes})
+
+
+def completeCrime(request):
+    if request.method == "POST":
+        user = request.user
+        police = PoliceModel.objects.get(user=user)
+        crime = police.current_crime
+        crime.status = "Completed"
+        crime.save()
+        PoliceModel.objects.filter(current_crime=crime).update(current_crime=None)
+        messages.success(request, "Crime has been successfully updated to completed")
+        return redirect("policeHome")
+    else:
+        return render(request, "police_template/completeCrime.html")
