@@ -15,7 +15,7 @@
             color: green;
         }
     </style>
-        <link rel="stylesheet" href="{% static 'css/police/policehome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/police/policehome.css' %}">
 </head>
 
 <body>
@@ -29,17 +29,7 @@
     </ul>
     {% endif %}
 
-<<<<<<< HEAD
-=======
-    {% if current_crime %}
-    <p class="current-crime">
-        Current Crime: <a href="{% url 'crime' current_crime.pk %}">{{ current_crime.crime_type }}</a></p>
-    {% else %}
-    <p class="current-crime">No Current Crime Selected.</p>
-    {% endif %}
 
-    <a href="{% url 'policeLogout' %}" style="text-decoration: none;">Logout</a><br>
->>>>>>> 8dad3d78d8e748bf8dbe0a92f1dfea1f6a8e0392
     <a href="{% url 'pendingCrimes' %}" style="text-decoration: none;">Select Crimes to investigate</a><br>
     <a href="{% url 'cancelCrime' %}" style="text-decoration: none;">Cancel Current selected crime</a><br>
     <a href="{% url 'addWitness' %}">Add Witness</a><br>
