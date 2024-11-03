@@ -453,7 +453,7 @@ class UpdateSuspect(LoginRequiredMixin, UpdateView):
 @user_passes_test(is_police, login_url="policeLogin")
 def completed_crimes_view(request, officer_id):
     officer = PoliceModel.objects.get(id=officer_id)
-    completed_crimes = Crime.objects.filter(station=officer.station, status="Completed")
+    completed_crimes = Crime.objects.filter(status="Completed")
     return render(request, 'police_template/completedCrime.html', {'completed_crimes': completed_crimes})
 
 
