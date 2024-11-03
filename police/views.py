@@ -47,7 +47,9 @@ def logout_police(request):
 def home_police(request):
     police = PoliceModel.objects.get(user=request.user)
     current_crime = police.current_crime
-    return render(request, "police_template/home.html", {'current_crime': current_crime})
+    return render(
+        request, "police_template/home.html", {"current_crime": current_crime}
+    )
 
 
 @login_required(login_url="policeLogin")
@@ -446,3 +448,17 @@ class UpdateSuspect(LoginRequiredMixin, UpdateView):
             )
             return redirect(reverse("policeHome"))
         return super().dispatch(request, *args, **kwargs)
+
+
+def completeCrime(request):
+    if request.method == "POST":
+        user = request.user
+        police = PoliceModel.objects.get(user=user)
+        crime = police.current_crime
+        crime.status = "Completed"
+        crime.save()
+        PoliceModel.objects.filter(current_crime=crime).update(current_crime=None)
+        messages.success(request, "Crime has been successfully updated to completed")
+        return redirect("policeHome")
+    else:
+        return render(request, "police_template/completeCrime.html")
