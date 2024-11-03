@@ -19,6 +19,7 @@
             <thead>
                 <tr>
                     <th>Crime ID</th>
+                    <th>Crime Type</th>
                     <th>Description</th>
                     <th>Date</th>
                     <th>Location</th>
@@ -29,6 +30,7 @@
                 {% for crime in completed_crimes %}
                 <tr>
                     <td>{{ crime.id }}</td>
+                    <td>{{ crime.crime_type }}</td>
                     <td>{{ crime.description }}</td>
                     <td>{{ crime.date }}</td>
                     <td>{{ crime.location }}</td>
