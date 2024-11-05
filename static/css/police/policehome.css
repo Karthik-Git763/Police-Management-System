@@ -23,7 +23,7 @@ p{
     padding: 100px;
     padding-left: 300px;
 }
-a{
+div a{
     width: 100%;
     padding: 10px;
     display: flex;
@@ -37,6 +37,23 @@ a{
     cursor: pointer;
     transition: background-color 0.3s;
 }
-a:hover {
+div a:hover {
     background-color: blue;
+}
+
+.current-crime {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+}
+
+.current-crime a {
+    text-decoration: none;
+}
+
+.current-crime a:hover {
+    text-decoration: underline;
+    color: darkblue;
 }

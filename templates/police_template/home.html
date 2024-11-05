@@ -15,7 +15,7 @@
             color: green;
         }
     </style>
-        <link rel="stylesheet" href="{% static 'css/police/policehome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/police/policehome.css' %}">
 </head>
 
 <body>
@@ -28,16 +28,15 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <div class="subs">
-
     {% if current_crime %}
     <p class="current-crime">
         Current Crime: <a href="{% url 'crime' current_crime.pk %}">{{ current_crime.crime_type }}</a></p>
     {% else %}
     <p class="current-crime">No Current Crime Selected.</p>
     {% endif %}
+    <div class="subs">
 
-    <a href="{% url 'policeLogout' %}" style="text-decoration: none;">Logout</a><br>
+
     <a href="{% url 'pendingCrimes' %}" style="text-decoration: none;">Select Crimes to investigate</a><br>
     <a href="{% url 'completedCrimes' officer_id %}" style="text-decoration: none;">Completed Crimes</a><br>
     <a href="{% url 'cancelCrime' %}" style="text-decoration: none;">Cancel Current selected crime</a><br>
