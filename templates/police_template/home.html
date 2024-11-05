@@ -28,9 +28,11 @@
         {% endfor %}
     </ul>
     {% endif %}
+    <div class="subs">
 
 
     <a href="{% url 'pendingCrimes' %}" style="text-decoration: none;">Select Crimes to investigate</a><br>
+    <a href="{% url 'completedCrimes' officer_id %}" style="text-decoration: none;">Completed Crimes</a><br>
     <a href="{% url 'cancelCrime' %}" style="text-decoration: none;">Cancel Current selected crime</a><br>
     <a href="{% url 'addWitness' %}">Add Witness</a><br>
     <a href="{% url 'addEvidence' %}">Add Evidence</a><br>

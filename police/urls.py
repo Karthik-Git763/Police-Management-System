@@ -31,4 +31,6 @@ urlpatterns = [
         "updateEvidence/<int:pk>", views.UpdateEvidence.as_view(), name="updateEvidence"
     ),
     path("updateSuspect/<int:pk>", views.UpdateSuspect.as_view(), name="updateSuspect"),
+     path('completedCrimes/<int:officer_id>/', views.completed_crimes_view, name='completedCrimes'),
+    path("completeCrime/", views.completeCrime, name="completeCrime"),
 ]
