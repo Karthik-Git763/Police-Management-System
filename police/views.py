@@ -277,7 +277,7 @@ def add_criminal_to_current_crime(request):
     crime = police.current_crime
     if crime is None:
         messages.error(request, "Select a crime first")
-        redirect("policeHome")
+        return redirect("policeHome")
     if request.method == "POST":
         form = CriminalToCrimeForm(request.POST)
         if form.is_valid():
