@@ -8,23 +8,30 @@
     <link rel="stylesheet" href="{% static 'css/police/pendingcrimes.css' %}">
 </head>
 <body>
-    <h2>Pending Crimes</h2>
-    <div class="p"><p>Welcome, {{request.user.username}}!</p></div>
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% for crime in crimes %}
-        <h3><a href="{% url 'crime' crime.id %}">{{crime.crime_type}}</a></h3><!--Check if correct later-->
-        {% if crime.description|length > 50 %}
-            <p>{{ crime.description|slice:":50" }}...</p>
-        {% else %}
-            <p>{{crime.description}}</p>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'policeHome' %}">Home</a></li>
+            <li><a href="{% url 'policeLogout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div>
+        <h2>Pending Crimes</h2>
+        <div class="p"><p>Welcome, {{request.user.username}}!</p></div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
         {% endif %}
-
-    {% endfor %}
+        {% for crime in crimes %}
+            <h3><a href="{% url 'crime' crime.id %}">{{crime.crime_type}}</a></h3><!--Check if correct later-->
+            {% if crime.description|length > 50 %}
+                <p>{{ crime.description|slice:":50" }}...</p>
+            {% else %}
+                <p>{{crime.description}}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
 </body>
 </html>
