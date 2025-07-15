@@ -6,10 +6,10 @@ Empowering Justice Through Seamless Law Enforcement Innovation.
 
 ## 📚 Table of Contents
 - [Overview](#overview)
-- [Getting Started](#🛠️-getting-started)
+- [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [🚀 Usage](#usage)
+- [Usage](#usage)
 
 ---
 
@@ -19,9 +19,9 @@ The Police Management System is a Python-powered solution designed to support an
 
 ---
 
-## 🛠️ Getting Started
+## Getting Started
 
-### 🔧 Prerequisites
+### Prerequisites
 
 Before you begin, ensure you have the following installed:
 
@@ -30,7 +30,7 @@ Before you begin, ensure you have the following installed:
 
 ---
 
-### 📦 Installation
+### Installation
 
 Build and set up the Police Management System locally by following these steps:
 
@@ -45,7 +45,7 @@ cd Police-Management-System
 pipenv install
 ```
 ---
-## 🚀 Usage
+## Usage
 To run the project:
 
 ```bash
